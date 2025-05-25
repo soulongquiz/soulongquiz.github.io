@@ -3,27 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Local Game Club Quiz</title>
+  <title>Game Club Quiz</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="quiz.css" />
 </head>
 <body>
-  <nav>
+  <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="quiz.html" class="active">Quiz</a>
   </nav>
 
   <main>
+    <h1>Game Club Quiz</h1>
+
     <div id="quiz-container"></div>
 
-    <div class="controls">
-      <button id="back-btn">Back</button>
+    <div class="quiz-controls">
+      <button id="back-btn" disabled>Back</button>
       <button id="check-btn">Check</button>
       <button id="next-btn">Next</button>
+      <button id="finish-btn" style="display:none;">Finish Test</button>
     </div>
 
-    <div id="score"></div>
+    <div id="question-nav" class="question-navigation"></div>
 
-    <div id="question-nav"></div>
+    <div id="score" style="display:none;"></div>
   </main>
 
   <script src="quiz.js"></script>
