@@ -97,6 +97,7 @@ function loadQuestion() {
           selectedAnswers[currentQuestion] = option;
           document.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
           btn.classList.add("selected");
+          clearFeedback();
         }
       };
       li.appendChild(btn);
@@ -104,25 +105,40 @@ function loadQuestion() {
     });
     quizContainer.appendChild(optionsList);
   } else if (q.type === "matching") {
-      renderMatching(q);
-  } 
+    let pairsToRender;
+  
+    // If the question was already attempted or quiz is finished, use original pairs to preserve state
+    if (checkedQuestions.has(currentQuestion) || quizFinished) {
+      pairsToRender = q.pairs;
+    } else {
+      // Shuffle left side (images), preserving original right side
+      const shuffledLefts = shuffleArray(q.pairs.map(pair => pair.left));
+      pairsToRender = shuffledLefts.map((left, i) => ({
+        left,
+        right: q.pairs[i].right
+      }));
+    }
+  
+    renderMatching({ ...q, pairs: pairsToRender });
+  }
+  
 
   backBtn.disabled = currentQuestion === 0;
-  nextBtn.disabled = currentQuestion === quizData.length - 1;
 
-  // Change Next button text to "Finish" on last question
-  nextBtn.textContent = currentQuestion === quizData.length - 1 ? "Finish" : "Next";
+  if (currentQuestion === quizData.length - 1) {
+    nextBtn.style.display = "none";
+    finishBtn.style.display = quizFinished ? "none" : "inline-block";
+  } else {
+    nextBtn.style.display = "inline-block";
+    finishBtn.style.display = "none";
+    nextBtn.disabled = false;
+  }
 
-  // Disable check button after finish (or hide)
   checkBtn.style.display = quizFinished ? "none" : "inline-block";
 
-  // Show feedback automatically if finished or question is checked
   const showFb = quizFinished || checkedQuestions.has(currentQuestion);
   if (showFb) {
-    // Remove any existing feedback first
-    const existingFb = quizContainer.querySelector(".feedback");
-    if (existingFb) existingFb.remove();
-
+    clearFeedback();
     const fb = createFeedback(currentQuestion);
     quizContainer.appendChild(fb);
   }
@@ -132,16 +148,17 @@ function loadQuestion() {
   scoreDisplay.style.display = quizFinished ? "block" : "none";
 }
 
+
 nextBtn.addEventListener("click", () => {
   if (currentQuestion < quizData.length - 1) {
     currentQuestion++;
     loadQuestion();
   } else if (!quizFinished) {
-    // On Finish click - auto check all
+    currentQuestion++;
     autoCheckAllQuestions();
     quizFinished = true;
     loadQuestion();
-    showFinalScore();
+    showScore();
     renderQuestionNav();
   }
 });
@@ -150,250 +167,33 @@ function autoCheckAllQuestions() {
   for (let i = 0; i < quizData.length; i++) {
     checkedQuestions.add(i);
 
-    // For matching questions, if any answers missing, just leave empty (incorrect)
-    // For multiple choice, if no answer selected, leave as undefined (incorrect)
-    if (quizData[i].type === "matching") {
+    if (quizData[i].type === "multiple") {
+      // If no answer selected, mark incorrect explicitly
+      if (!selectedAnswers[i]) {
+        answersCorrectness[i] = false;
+      } else {
+        answersCorrectness[i] = selectedAnswers[i] === quizData[i].answer;
+      }
+    } else if (quizData[i].type === "matching") {
       if (!matchAnswersPerQuestion[i]) {
         matchAnswersPerQuestion[i] = {};
       }
-    }
-  }
-}
-
-// Disable Check button event since now checking is automatic
-checkBtn.style.display = "none";
-
-
-function renderMultipleChoice(question) {
-  if (question.image) {
-    const img = document.createElement("img");
-    img.src = question.image;
-    img.alt = question.question;
-    img.style.maxWidth = "180px";
-    img.style.display = "block";
-    img.style.margin = "0 auto 1em";
-    quizContainer.appendChild(img);
-  }
-
-  const ul = document.createElement("ul");
-  ul.classList.add("quiz-options");
-
-  const options = shuffleArray(question.options);
-
-  options.forEach(option => {
-    const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.classList.add("option-btn");
-    btn.textContent = option;
-
-    // Pre-select if answer stored
-    if (selectedAnswers[currentQuestion] === option) {
-      btn.classList.add("selected");
-    }
-
-    btn.onclick = () => {
-      // Clear all others
-      const siblings = ul.querySelectorAll("button.option-btn");
-      siblings.forEach(sib => sib.classList.remove("selected"));
-      btn.classList.add("selected");
-      selectedAnswers[currentQuestion] = option;
-      clearFeedback();
-    };
-    li.appendChild(btn);
-    ul.appendChild(li);
-  });
-  quizContainer.appendChild(ul);
-}
-
-function renderMatching(question) {
-  // Create left and right columns
-  const container = document.createElement("div");
-  container.classList.add("match-container");
-
-  // Left list with draggable items
-  const leftList = document.createElement("ul");
-  leftList.id = "left-list";
-
-  question.pairs.forEach(pair => {
-    const li = document.createElement("li");
-    const div = document.createElement("div");
-    div.classList.add("draggable");
-    div.draggable = true;
-    div.id = pair.left.id;
-    if (pair.left.type === "image") {
-      const img = document.createElement("img");
-      img.src = pair.left.src;
-      img.alt = pair.left.id;
-      div.appendChild(img);
-      div.appendChild(document.createTextNode(pair.left.id));
-    } else {
-      div.textContent = pair.left.id;
-    }
-    li.appendChild(div);
-    leftList.appendChild(li);
-  });
-
-  container.appendChild(leftList);
-
-  // Right list with droppable slots
-  const rightList = document.createElement("ul");
-  rightList.id = "right-list";
-
-  question.pairs.forEach(pair => {
-    const li = document.createElement("li");
-    li.classList.add("droppable");
-    li.dataset.matchId = pair.right;
-    li.textContent = pair.right;
-
-    // If answer exists, show dropped draggable
-    const existing = matchAnswersPerQuestion[currentQuestion]?.[pair.right];
-    if (existing) {
-      const droppedDiv = document.createElement("div");
-      droppedDiv.classList.add("draggable");
-      droppedDiv.id = existing.id;
-      droppedDiv.draggable = true;
-      if (existing.src) {
-        const img = document.createElement("img");
-        img.src = existing.src;
-        img.alt = existing.id;
-        droppedDiv.appendChild(img);
-        droppedDiv.appendChild(document.createTextNode(existing.id));
-      } else {
-        droppedDiv.textContent = existing.id;
-      }
-      li.textContent = pair.right;
-      li.appendChild(droppedDiv);
-    }
-
-    rightList.appendChild(li);
-  });
-
-  container.appendChild(rightList);
-  quizContainer.appendChild(container);
-
-  // Setup drag and drop events
-  setupDragAndDrop();
-}
-
-function setupDragAndDrop() {
-  const draggables = document.querySelectorAll(".draggable");
-  const droppables = document.querySelectorAll(".droppable");
-
-  draggables.forEach(drag => {
-    drag.addEventListener("dragstart", e => {
-      e.dataTransfer.setData("text/plain", drag.id);
-      setTimeout(() => {
-        drag.style.display = "none";
-      }, 0);
-    });
-    drag.addEventListener("dragend", e => {
-      e.target.style.display = "flex";
-    });
-  });
-
-  droppables.forEach(drop => {
-    drop.addEventListener("dragover", e => {
-      e.preventDefault();
-      drop.style.backgroundColor = "#d4edda";
-    });
-    drop.addEventListener("dragleave", e => {
-      drop.style.backgroundColor = "#f9f9f9";
-    });
-    drop.addEventListener("drop", e => {
-      e.preventDefault();
-      drop.style.backgroundColor = "#f9f9f9";
-      const id = e.dataTransfer.getData("text/plain");
-      const dragElem = document.getElementById(id);
-
-      // Only accept one draggable at a time
-      // Remove previous if any
-      const existingDrag = drop.querySelector(".draggable");
-      if (existingDrag) {
-        existingDrag.remove();
-      }
-
-      // Append dragged element clone to drop
-      const clone = dragElem.cloneNode(true);
-      clone.style.display = "flex";
-      clone.draggable = true;
-      clone.id = dragElem.id;
-      drop.appendChild(clone);
-
-      // Store answer in memory
-      if (!matchAnswersPerQuestion[currentQuestion]) {
-        matchAnswersPerQuestion[currentQuestion] = {};
-      }
-      matchAnswersPerQuestion[currentQuestion][drop.dataset.matchId] = {
-        id: clone.id,
-        src: clone.querySelector("img")?.src || null
-      };
-
-      // Remove draggable from left if matched
-      dragElem.style.visibility = "hidden";
-
-      // Allow dragging of clone inside droppable for rearranging or removing
-      clone.addEventListener("dragstart", e => {
-        e.dataTransfer.setData("text/plain", clone.id);
-        setTimeout(() => {
-          clone.style.display = "none";
-        }, 0);
-      });
-      clone.addEventListener("dragend", e => {
-        e.target.style.display = "flex";
-      });
-
-      clearFeedback();
-    });
-  });
-
-  // Allow removing draggable by dragging it back to left list
-  const leftList = document.getElementById("left-list");
-  leftList.addEventListener("dragover", e => {
-    e.preventDefault();
-  });
-  leftList.addEventListener("drop", e => {
-    e.preventDefault();
-    const id = e.dataTransfer.getData("text/plain");
-    // Find all droppables with this draggable and remove it
-    document.querySelectorAll(".droppable").forEach(d => {
-      const drag = d.querySelector(`.draggable#${id}`);
-      if (drag) {
-        drag.remove();
-        d.style.backgroundColor = "#f9f9f9";
-        // Remove from answers memory
-        if (matchAnswersPerQuestion[currentQuestion]) {
-          for (const key in matchAnswersPerQuestion[currentQuestion]) {
-            if (matchAnswersPerQuestion[currentQuestion][key].id === id) {
-              delete matchAnswersPerQuestion[currentQuestion][key];
-            }
-          }
+      let isCorrect = true;
+      for (const pair of quizData[i].pairs) {
+        const matched = matchAnswersPerQuestion[i][pair.right];
+        if (!matched || matched.id !== pair.left.id) {
+          isCorrect = false;
+          break;
         }
       }
-    });
-    // Make draggable visible again
-    const dragElem = document.getElementById(id);
-    if (dragElem) {
-      dragElem.style.visibility = "visible";
+      answersCorrectness[i] = isCorrect;
     }
-    clearFeedback();
-  });
-}
-
-function clearFeedback() {
-  const fb = quizContainer.querySelector(".feedback");
-  if (fb) fb.remove();
-}
-
-function showFeedback(isCorrect, message) {
-  clearFeedback();
-  const fb = document.createElement("div");
-  fb.classList.add("feedback");
-  fb.textContent = message;
-  fb.style.color = isCorrect ? "#2c6a4f" : "#b33a3a";
-  quizContainer.appendChild(fb);
+  }
 }
 
 checkBtn.onclick = () => {
+  if (quizFinished) return; // no checking after finish
+
   const q = quizData[currentQuestion];
   if (q.type === "multiple") {
     if (!selectedAnswers[currentQuestion]) {
@@ -449,13 +249,257 @@ function showScore() {
   }
   scoreDisplay.textContent = `Your score: ${correctCount} / ${quizData.length}`;
   scoreDisplay.style.display = "block";
+
   finishBtn.style.display = "none";
   nextBtn.style.display = "none";
   backBtn.disabled = true;
   checkBtn.disabled = true;
-  questionNav.style.display = "none";
+//questionNav.style.display = "none";
 }
+
+function createFeedback(qIndex) {
+  const fb = document.createElement("div");
+  fb.classList.add("feedback");
+  if (answersCorrectness[qIndex] === true) {
+    fb.textContent = quizData[qIndex].feedbackCorrect;
+    fb.style.color = "#2c6a4f";
+  } else if (answersCorrectness[qIndex] === false) {
+    fb.textContent = quizData[qIndex].feedbackIncorrect;
+    fb.style.color = "#b33a3a";
+  }
+  return fb;
+}
+
+function clearFeedback() {
+  const fb = quizContainer.querySelector(".feedback");
+  if (fb) fb.remove();
+}
+
+function showFeedback(isCorrect, message) {
+  clearFeedback();
+  const fb = document.createElement("div");
+  fb.classList.add("feedback");
+  fb.textContent = message;
+  fb.style.color = isCorrect ? "#2c6a4f" : "#b33a3a";
+  quizContainer.appendChild(fb);
+}
+
+function renderMatching(question) {
+  const container = document.createElement("div");
+  container.classList.add("match-container");
+
+  // Ensure storage object exists
+  if (!matchAnswersPerQuestion[currentQuestion]) {
+    matchAnswersPerQuestion[currentQuestion] = {};
+  }
+  const userMatches = matchAnswersPerQuestion[currentQuestion];
+
+  // Build map of left items that are already matched
+  const matchedLeftIds = new Set(
+    Object.values(userMatches).map(match => match.id)
+  );
+  const leftList = document.createElement("div");
+  leftList.id = "left-list";
+  container.appendChild(leftList); // so you can drop back to the left
+
+  question.pairs.forEach(pair => {
+    const row = document.createElement("div");
+    row.classList.add("match-row");
+
+    // Left (draggable) item
+    const leftItem = document.createElement("div");
+    leftItem.classList.add("left-box");
+
+    // Only render if not already matched
+    if (!matchedLeftIds.has(pair.left.id)) {
+      const div = document.createElement("div");
+      div.classList.add("draggable");
+      div.draggable = !checkedQuestions.has(currentQuestion) && !quizFinished;
+      div.id = pair.left.id;
+
+      if (pair.left.type === "image") {
+        const img = document.createElement("img");
+        img.src = pair.left.src;
+        img.alt = pair.left.id;
+        div.appendChild(img);
+      } else {
+        div.textContent = pair.left.id;
+      }
+
+      leftItem.appendChild(div);
+    }
+
+    // Right (droppable) item
+    const rightItem = document.createElement("div");
+    rightItem.classList.add("droppable");
+    rightItem.dataset.matchId = pair.right;
+    rightItem.textContent = pair.right;
+
+    // If already matched, restore the draggable
+    const existing = userMatches[pair.right];
+    if (existing) {
+      const droppedDiv = document.createElement("div");
+      droppedDiv.classList.add("draggable");
+      droppedDiv.id = existing.id;
+      droppedDiv.draggable = !checkedQuestions.has(currentQuestion) && !quizFinished;
+
+      if (existing.src || pair.left.type === "image") {
+        const img = document.createElement("img");
+        img.src = existing.src || pair.left.src;
+        img.alt = existing.id;
+        droppedDiv.appendChild(img);
+      } else {
+        droppedDiv.textContent = existing.id;
+      }
+
+      // Replace placeholder text
+      rightItem.textContent = pair.right;
+      rightItem.appendChild(droppedDiv);
+    }
+
+    row.appendChild(leftItem);
+    row.appendChild(rightItem);
+    container.appendChild(row);
+  });
+
+  quizContainer.appendChild(container);
+  setTimeout(setupDragAndDrop, 0);
+}
+
+
+
+function setupDragAndDrop() {
+  const draggables = document.querySelectorAll(".draggable");
+  const droppables = document.querySelectorAll(".droppable");
+
+  // Make draggable items behave correctly
+  draggables.forEach(drag => {
+    drag.draggable = !(checkedQuestions.has(currentQuestion) || quizFinished);
+
+    drag.addEventListener("dragstart", e => {
+      if (!drag.draggable) {
+        e.preventDefault();
+        return;
+      }
+      e.dataTransfer.setData("text/plain", drag.id);
+    });
+    
+
+    drag.addEventListener("dragend", e => {
+      e.target.style.display = "flex";
+      e.target.style.visibility = "visible";
+    });
+  });
+
+  // Handle drops on the right-side (matching) boxes
+  droppables.forEach(drop => {
+    drop.addEventListener("dragover", e => {
+      if (checkedQuestions.has(currentQuestion) || quizFinished) return;
+      e.preventDefault();
+      drop.style.backgroundColor = "#d4edda";
+    });
+
+    drop.addEventListener("dragleave", () => {
+      drop.style.backgroundColor = "#f9f9f9";
+    });
+
+    drop.addEventListener("drop", e => {
+      if (checkedQuestions.has(currentQuestion) || quizFinished) return;
+      e.preventDefault();
+      drop.style.backgroundColor = "#f9f9f9";
+
+      const id = e.dataTransfer.getData("text/plain");
+      const draggedElem = document.getElementById(id);
+      if (!draggedElem) return;
+
+      // Remove dragged from old parent if it's already in a droppable
+      const oldParent = draggedElem.parentElement;
+      if (oldParent && oldParent.classList.contains("droppable")) {
+        oldParent.removeChild(draggedElem);
+        // Unhide left-side clone
+        const leftClone = document.querySelector(`.left-box #${id}`);
+        if (leftClone) leftClone.style.visibility = "visible";
+      }
+
+      // Remove existing item in this drop box if any
+      const existing = drop.querySelector(".draggable");
+      if (existing) {
+        drop.removeChild(existing);
+        const restoreClone = document.querySelector(`.left-box #${existing.id}`);
+        if (restoreClone) restoreClone.remove(); // remove the clone, it's going back to left
+        
+
+        if (matchAnswersPerQuestion[currentQuestion]) {
+          delete matchAnswersPerQuestion[currentQuestion][drop.dataset.matchId];
+        }
+      }
+
+      drop.appendChild(draggedElem);
+      draggedElem.style.display = "flex";
+      draggedElem.style.visibility = "visible";
+
+      // Remove from original left container (if present)
+      const originalLeft = document.querySelector(`.left-box #${id}`);
+      if (originalLeft && originalLeft !== draggedElem) {
+        originalLeft.remove(); // fully remove the clone if it exists
+      }
+
+
+      // Save match
+      if (!matchAnswersPerQuestion[currentQuestion]) {
+        matchAnswersPerQuestion[currentQuestion] = {};
+      }
+      const imgElem = draggedElem.querySelector("img");
+      matchAnswersPerQuestion[currentQuestion][drop.dataset.matchId] = {
+        id: draggedElem.id,
+        src: imgElem ? imgElem.src : null,
+      };
+
+      clearFeedback();
+    });
+  });
+
+  // Handle dragging items back to the left side (unassign)
+  const leftList = document.getElementById("left-list");
+  leftList.addEventListener("dragover", e => e.preventDefault());
+
+  leftList.addEventListener("drop", e => {
+    if (checkedQuestions.has(currentQuestion) || quizFinished) return;
+
+    e.preventDefault();
+    const id = e.dataTransfer.getData("text/plain");
+    const draggedElem = document.getElementById(id);
+    if (!draggedElem) return;
+
+    // Only remove if it came from a right-side drop zone
+    const oldParent = draggedElem.parentElement;
+    if (oldParent && oldParent.classList.contains("droppable")) {
+      oldParent.removeChild(draggedElem);
+
+      const leftClone = document.querySelector(`.left-box #${id}`);
+      if (leftClone) {
+        leftClone.style.visibility = "visible";
+      }
+
+      if (matchAnswersPerQuestion[currentQuestion]) {
+        for (const key in matchAnswersPerQuestion[currentQuestion]) {
+          if (matchAnswersPerQuestion[currentQuestion][key].id === id) {
+            delete matchAnswersPerQuestion[currentQuestion][key];
+          }
+        }
+      }
+
+      draggedElem.style.display = "flex";
+      draggedElem.style.visibility = "visible";
+
+      clearFeedback();
+    }
+  });
+}
+
 
 window.onload = () => {
   loadQuestion();
+  finishBtn.disabled = false;
+  finishBtn.style.display = "none";  // hidden initially
 };

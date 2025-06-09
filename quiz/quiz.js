@@ -1,24 +1,59 @@
 // Quiz data with examples
 const quizData = [
   {
-    question: "Which tile is the red dragon?",
-    image: "red-dragon.jpg",
-    type: "multiple",
-    options: ["Red Dragon", "White Dragon", "Green Dragon"],
-    answer: "Red Dragon",
-    feedbackCorrect: "Yes! The red dragon is the correct choice.",
-    feedbackIncorrect: "No, that's not the red dragon."
-  },
-  {
-    question: "Match the tile to its type:",
+    question: "Attentes de base",
     type: "matching",
     pairs: [
-      { left: { type: "image", src: "images/ryanmen.png", id: "Ryanmen" }, right: "Two-Sided Wait" },
-      { left: { type: "image", src: "images/penchan.png", id: "Penchan" }, right: "Edge Wait" },
-      { left: { type: "image", src: "images/kanchan.png", id: "Kanchan" }, right: "Closed Wait" }
+      { left: { type: "image", src: "images/ryanmen.png", id: "Ryanmen" }, right: "Ryanmen" },
+      { left: { type: "image", src: "images/penchan.png", id: "Penchan" }, right: "Penchan" },
+      { left: { type: "image", src: "images/kanchan.png", id: "Kanchan" }, right: "Kanchan" },
+      { left: { type: "image", src: "images/tanki.png", id: "Tanki" }, right: "Tanki" },
+      { left: { type: "image", src: "images/shanpon.png", id: "Shanpon" }, right: "Shanpon" }
     ],
-    feedbackCorrect: "Excellent! All pairs are correct.",
-    feedbackIncorrect: "Some matches are off. Try reviewing the types."
+    feedbackCorrect: "Correct !",
+    feedbackIncorrect: "Raté !"
+  },
+  {
+    question: "Attentes complexes : double attente",
+    type: "matching",
+    pairs: [
+      { left: { type: "image", src: "images/nobetan.png", id: "Nobetan" }, right: "Nobetan" },
+      { left: { type: "image", src: "images/aryanmen.png", id: "Aryanmen" }, right: "Aryanmen" },
+      { left: { type: "image", src: "images/kantan.png", id: "Kantan" }, right: "Kantan" },
+      { left: { type: "image", src: "images/pentan.png", id: "Pentan" }, right: "Pentan" }
+    ],
+    feedbackCorrect: "Correct !",
+    feedbackIncorrect: "Raté !"
+  },
+  {
+    question: "Attentes complexes : triple attente",
+    type: "matching",
+    pairs: [
+      { left: { type: "image", src: "images/sanmenchan.png", id: "Sanmenchan" }, right: "Sanmenchan" },
+      { left: { type: "image", src: "images/sanmentan.png", id: "Sanmentan" }, right: "Sanmentan" },
+      { left: { type: "image", src: "images/ryantan.png", id: "Ryantan" }, right: "Ryantan" },
+      { left: { type: "image", src: "images/ryankantan.png", id: "Ryankantan" }, right: "Ryankantan" }
+    ],
+    feedbackCorrect: "Correct !",
+    feedbackIncorrect: "Raté !"
+  },
+  {
+    question: "Quintuple attente",
+    image: "images/tatsumaki.png",
+    type: "multiple",
+    options: ["Tatsumaki", "Hadouken", "Okizeme", "Keikoku"],
+    answer: "Tatsumaki",
+    feedbackCorrect: "Correct !",
+    feedbackIncorrect: "Raté !"
+  },
+  {
+    question: "Octuple attente",
+    image: "images/happoubijin.png",
+    type: "multiple",
+    options: ["Nakade", "Hachiko", "Happoubijin", "Yonrenkei"],
+    answer: "Happoubijin",
+    feedbackCorrect: "Correct !",
+    feedbackIncorrect: "Raté !"
   }
 ];
 
@@ -26,7 +61,7 @@ let currentQuestion = 0;
 let selectedAnswers = {}; // store multiple-choice selections
 let matchAnswersPerQuestion = {}; // matching answers storage
 let checkedQuestions = new Set();
-let answersCorrectness = {};
+let answersCorrectness = new Map();
 let quizFinished = false;
 
 const quizContainer = document.getElementById("quiz-container");
@@ -36,6 +71,7 @@ const backBtn = document.getElementById("back-btn");
 const checkBtn = document.getElementById("check-btn");
 const finishBtn = document.getElementById("finish-btn");
 const questionNav = document.getElementById("question-nav");
+const disabledQuestions = new Set();
 
 function shuffleArray(array) {
   const arr = [...array];
@@ -63,6 +99,30 @@ function renderQuestionNav() {
 
     questionNav.appendChild(btn);
   });
+
+  const isAlreadyAnswered = answersCorrectness.has(currentQuestion);
+
+  if (isAlreadyAnswered) {
+    // Disable all radio buttons or selects
+    const inputs = quizContainer.querySelectorAll("input, select, .option-btn, .draggable");
+    inputs.forEach(input => {
+      if (input.tagName === "BUTTON") {
+        input.classList.add("disabled");
+        input.onclick = null;
+      } else {
+        input.disabled = true;
+      }
+    });
+    
+
+    // Also disable check button
+    checkBtn.disabled = true;
+
+    // Optionally show feedback again
+    const q = quizData[currentQuestion];
+    const wasCorrect = answersCorrectness.get(currentQuestion);
+    showFeedback(wasCorrect, wasCorrect ? q.feedbackCorrect : q.feedbackIncorrect);
+  }
 }
 
 function loadQuestion() {
@@ -93,7 +153,7 @@ function loadQuestion() {
       btn.className = "option-btn";
       if (selectedAnswers[currentQuestion] === option) btn.classList.add("selected");
       btn.onclick = () => {
-        if (!quizFinished) {  // allow change only if quiz not finished
+        if (isAnswerEditable()) {  // allow change only if quiz not finished
           selectedAnswers[currentQuestion] = option;
           document.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
           btn.classList.add("selected");
@@ -105,15 +165,23 @@ function loadQuestion() {
     });
     quizContainer.appendChild(optionsList);
   } else if (q.type === "matching") {
-    // Shuffle left side (images), preserving original right side
-    const shuffledLefts = shuffleArray(q.pairs.map(pair => pair.left));
-    const pairsShuffledLeft = shuffledLefts.map((left, i) => ({
-      left,
-      right: q.pairs[i].right
-    }));
+    let pairsToRender;
   
-    renderMatching({ ...q, pairs: pairsShuffledLeft });
+    // If the question was already attempted or quiz is finished, use original pairs to preserve state
+    if (checkedQuestions.has(currentQuestion) || quizFinished) {
+      pairsToRender = q.pairs;
+    } else {
+      // Shuffle left side (images), preserving original right side
+      const shuffledLefts = shuffleArray(q.pairs.map(pair => pair.left));
+      pairsToRender = shuffledLefts.map((left, i) => ({
+        left,
+        right: q.pairs[i].right
+      }));
+    }
+  
+    renderMatching({ ...q, pairs: pairsToRender });
   }
+  
 
   backBtn.disabled = currentQuestion === 0;
 
@@ -136,6 +204,8 @@ function loadQuestion() {
   }
 
   renderQuestionNav();
+  checkBtn.disabled = checkedQuestions.has(currentQuestion) || quizFinished;
+
 
   scoreDisplay.style.display = quizFinished ? "block" : "none";
 }
@@ -145,13 +215,14 @@ nextBtn.addEventListener("click", () => {
   if (currentQuestion < quizData.length - 1) {
     currentQuestion++;
     loadQuestion();
-  } else if (!quizFinished) {
+  } else if (isAnswerEditable()) {
     currentQuestion++;
     autoCheckAllQuestions();
     quizFinished = true;
     loadQuestion();
     showScore();
     renderQuestionNav();
+    checkBtn.disabled = checkedQuestions.has(currentQuestion) || quizFinished;
   }
 });
 
@@ -185,11 +256,14 @@ function autoCheckAllQuestions() {
 
 checkBtn.onclick = () => {
   if (quizFinished) return; // no checking after finish
+  if (disabledQuestions.has(currentQuestion)) return;
 
   const q = quizData[currentQuestion];
   if (q.type === "multiple") {
     if (!selectedAnswers[currentQuestion]) {
       alert("Please select an answer before checking.");
+      disabledQuestions.add(currentQuestion);
+      disableCurrentAnswerButtons();
       return;
     }
     const isCorrect = selectedAnswers[currentQuestion] === q.answer;
@@ -197,6 +271,7 @@ checkBtn.onclick = () => {
     checkedQuestions.add(currentQuestion);
 
     showFeedback(isCorrect, isCorrect ? q.feedbackCorrect : q.feedbackIncorrect);
+    checkBtn.disabled = true;
   } else if (q.type === "matching") {
     const userPairs = matchAnswersPerQuestion[currentQuestion];
     if (!userPairs || Object.keys(userPairs).length < q.pairs.length) {
@@ -213,8 +288,10 @@ checkBtn.onclick = () => {
     }
     answersCorrectness[currentQuestion] = isCorrect;
     checkedQuestions.add(currentQuestion);
-
+    disabledQuestions.add(currentQuestion);
+    disableCurrentAnswerButtons();
     showFeedback(isCorrect, isCorrect ? q.feedbackCorrect : q.feedbackIncorrect);
+    checkBtn.disabled = true;
   }
 };
 
@@ -226,7 +303,7 @@ backBtn.onclick = () => {
 };
 
 finishBtn.onclick = () => {
-  if (!quizFinished) {
+  if (isAnswerEditable()) {
     autoCheckAllQuestions();
     quizFinished = true;
     loadQuestion();
@@ -239,7 +316,7 @@ function showScore() {
   for (let i = 0; i < quizData.length; i++) {
     if (answersCorrectness[i]) correctCount++;
   }
-  scoreDisplay.textContent = `Your score: ${correctCount} / ${quizData.length}`;
+  scoreDisplay.textContent = `Score final : ${correctCount} / ${quizData.length}`;
   scoreDisplay.style.display = "block";
 
   finishBtn.style.display = "none";
@@ -290,6 +367,9 @@ function renderMatching(question) {
   const matchedLeftIds = new Set(
     Object.values(userMatches).map(match => match.id)
   );
+  const leftList = document.createElement("div");
+  leftList.id = "left-list";
+  container.appendChild(leftList); // so you can drop back to the left
 
   question.pairs.forEach(pair => {
     const row = document.createElement("div");
@@ -303,7 +383,11 @@ function renderMatching(question) {
     if (!matchedLeftIds.has(pair.left.id)) {
       const div = document.createElement("div");
       div.classList.add("draggable");
-      div.draggable = !checkedQuestions.has(currentQuestion) && !quizFinished;
+      if (checkedQuestions.has(currentQuestion) || quizFinished) {
+        document.querySelectorAll(".draggable").forEach(elem => {
+          elem.draggable = false;
+        });
+      }      
       div.id = pair.left.id;
 
       if (pair.left.type === "image") {
@@ -330,7 +414,7 @@ function renderMatching(question) {
       const droppedDiv = document.createElement("div");
       droppedDiv.classList.add("draggable");
       droppedDiv.id = existing.id;
-      droppedDiv.draggable = !checkedQuestions.has(currentQuestion) && !quizFinished;
+      droppedDiv.draggable = isAnswerEditable();
 
       if (existing.src || pair.left.type === "image") {
         const img = document.createElement("img");
@@ -352,7 +436,7 @@ function renderMatching(question) {
   });
 
   quizContainer.appendChild(container);
-  setupDragAndDrop();
+  setTimeout(setupDragAndDrop, 0);
 }
 
 
@@ -371,10 +455,8 @@ function setupDragAndDrop() {
         return;
       }
       e.dataTransfer.setData("text/plain", drag.id);
-      setTimeout(() => {
-        drag.style.display = "none";
-      }, 0);
     });
+    
 
     drag.addEventListener("dragend", e => {
       e.target.style.display = "flex";
@@ -417,7 +499,8 @@ function setupDragAndDrop() {
       if (existing) {
         drop.removeChild(existing);
         const restoreClone = document.querySelector(`.left-box #${existing.id}`);
-        if (restoreClone) restoreClone.style.visibility = "visible";
+        if (restoreClone) restoreClone.remove(); // remove the clone, it's going back to left
+        
 
         if (matchAnswersPerQuestion[currentQuestion]) {
           delete matchAnswersPerQuestion[currentQuestion][drop.dataset.matchId];
@@ -428,9 +511,12 @@ function setupDragAndDrop() {
       draggedElem.style.display = "flex";
       draggedElem.style.visibility = "visible";
 
-      // Hide the left-side copy
-      const leftOriginal = document.querySelector(`.left-box #${id}`);
-      if (leftOriginal) leftOriginal.style.visibility = "hidden";
+      // Remove from original left container (if present)
+      const originalLeft = document.querySelector(`.left-box #${id}`);
+      if (originalLeft && originalLeft !== draggedElem) {
+        originalLeft.remove(); // fully remove the clone if it exists
+      }
+
 
       // Save match
       if (!matchAnswersPerQuestion[currentQuestion]) {
@@ -484,11 +570,21 @@ function setupDragAndDrop() {
   });
 }
 
+function disableCurrentAnswerButtons() {
+  document.querySelectorAll(".option-btn").forEach(btn => {
+    btn.classList.add("disabled");
+    btn.onclick = null;
+  });
+  checkBtn.disabled = true;
+}
+
+function isAnswerEditable() {
+  return !quizFinished && !checkedQuestions.has(currentQuestion);
+}
+
 
 window.onload = () => {
   loadQuestion();
   finishBtn.disabled = false;
   finishBtn.style.display = "none";  // hidden initially
 };
-
-

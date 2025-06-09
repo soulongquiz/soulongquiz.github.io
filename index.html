@@ -3,34 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Local Game Club Association</title>
+  <title>Sou-Long Mahjong</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/hatsu24.png" type="image/png" />
+  <!-- Font Awesome for Instagram icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papM6Gz+DzL5rIKsX3gJQSkZfZJz9QfGr7XJlMQ3UYzG27vlPRAwS6MdaKk0Zp5R+j+qFdG9xs4+5DdEV+4mZw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 <body>
   <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="quiz.html">Quiz</a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li class="dropdown">
+        <a href="quiz/machi.html">Quiz <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="quiz/machi.html">Attentes</a></li>
+          <li><a href="quiz/tbd.html">TBD</a></li>
+        </ul>
+      </li>
+      <li><a href="club.html">Nous rencontrer</a></li>
+      <li><a href="https://instagram.com/yourprofile" target="_blank" class="instagram-link" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a></li>
+    </ul>
   </nav>
 
   <main>
-    <h1>Welcome to the Local Game Club</h1>
+    <h1>Titre section blog</h1>
 
-    <section class="blog-posts">
-      <article>
-        <h2>Upcoming Mahjong Tournament</h2>
-        <p>Stay tuned for our annual Mahjong tournament with exciting prizes and challenges!</p>
-      </article>
-
-      <article>
-        <h2>Weekly Game Nights</h2>
-        <p>Join us every Friday evening for board games, card games, and fun with friends.</p>
-      </article>
-
-      <article>
-        <h2>New Members Welcome</h2>
-        <p>We are always happy to welcome new players of all skill levels. Come join the fun!</p>
-      </article>
+    <section id="blog-posts" class="blog-posts">
+      <!-- Posts will be dynamically paginated -->
     </section>
+
+    <div class="pagination">
+      <button id="prevPage" disabled>Previous</button>
+      <span id="pageInfo">Page 1</span>
+      <button id="nextPage">Next</button>
+    </div>
   </main>
+
+  <script src="blog-pagination.js"></script>
 </body>
 </html>
