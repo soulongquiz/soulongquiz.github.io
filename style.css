@@ -1,26 +1,27 @@
 /* Color palette */
 :root {
-    --bg-empty-1: #E2CDA5;
-    --bg-empty-2: #F5E9C3;
-    --bg-empty-3: #FFFBD6;
+  --bg-empty-1: #E2CDA5;
+  --bg-empty-2: #F5E9C3;
+  --bg-empty-3: #FFFBD6;
+
+  --bg-menu-1: #8EA56A;
+  --bg-menu-2: #9EC266;
+  --bg-menu-3: #C5D48F;
+  --bg-menu-4: #D3DC77;
+
+  --text-primary-1: #221303;
+  --text-primary-2: #3D2205;
+
+  --header-primary-1: #5C0000;
+  --header-primary-2: #C40909;
+  --header-primary-3: #920606;
+}
   
-    --bg-menu-1: #2c6a4f;   /* Adjusted to quiz nav green */
-    --bg-menu-2: #3b6e58;   /* Slightly darker green */
-    --bg-menu-3: #8bc34a;   /* Quiz selection green */
-    --bg-menu-4: #c8e6c9;   /* Light green background */
-    
-    --text-primary-1: #221303;
-    --text-primary-2: #333; /* Dark grey for text */
-  
-    --header-primary-1: #5C0000;
-    --header-primary-2: #2c6a4f;  /* Matching nav green */
-    --header-primary-3: #1e4d3a;  /* Darker green */
-  }
   
   /* Body background and base font */
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f7f9f9; /* light neutral */
+    background: var(--bg-empty-2);
     margin: 0;
     padding: 2em 1em;
     color: var(--text-primary-2);
@@ -94,10 +95,11 @@
     border-radius: 4px;
     transition: background-color 0.3s ease;
   }
-  
-  .nav-menu a:hover,
-  .nav-menu a.active {
-    background-color: var(--header-primary-3);
+  /* .nav-menu a.active */
+
+  .nav-menu a:hover {
+    background-color: var(--bg-menu-4);
+    color: #5C0000;
   }
   
   /* Dropdown submenu */

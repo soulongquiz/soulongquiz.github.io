@@ -7,38 +7,38 @@ const pageInfo = document.getElementById("pageInfo");
 
 const blogPosts = [
   {
-    title: "Upcoming Mahjong Tournament",
-    text: "Stay tuned for our annual Mahjong tournament with exciting prizes and challenges!",
-    img: "images/mahjong-tournament.jpg",
+    title: "Nouveaux locaux",
+    text: "Le club aura des locaux à Fontaine-Lestangs à la rentrée 2025",
+    img: "images/henridesbals.webp",
   },
   {
-    title: "Upcoming Mahjong Tournament",
-    text: "Stay tuned for our annual Mahjong tournament with exciting prizes and challenges!",
-    img: "images/mahjong-tournament.jpg",
+    title: "WRC 2025",
+    text: "Allez les français.",
+    img: "images/francewrc2025.webp",
   },
   {
-    title: "Upcoming Mahjong Tournament",
-    text: "Stay tuned for our annual Mahjong tournament with exciting prizes and challenges!",
-    img: "images/mahjong-tournament.jpg",
+    title: "Résultats tournoi Montpellier",
+    text: "Tournoi des pradettes",
+    img: "images/pradettes.jpg",
   },
   {
-    title: "Weekly Game Nights",
-    text: "Join us every Friday evening for board games, card games, and fun with friends.",
-    img: "images/game-night.jpg",
+    title: "Mini-quiz",
+    text: "La plupart des attentes récurrentes ont des noms, y compris certaines attentes complexes.",
+    img: "images/question-mark.jpg",
   },
   {
-    title: "New Members Welcome",
-    text: "We are always happy to welcome new players of all skill levels. Come join the fun!",
-    img: "images/new-members.jpg",
+    title: "Festival du jeu de Toulouse",
+    text: "MEET alchimie du jeu.",
+    img: "images/alchimie.jpg",
   },
   {
-    title: "Community Outreach",
-    text: "Learn how we bring Mahjong to local schools and libraries.",
-    img: "images/community.jpg",
+    title: "Mahjong Souls",
+    text: "Retrouvez-nous sur Mahjong Souls",
+    img: "images/majsoul.jpg",
   },
   {
-    title: "Volunteer Opportunities",
-    text: "Get involved and help organize events and tournaments.",
+    title: "Le site est en ligne",
+    text: "Pour l'instant la section blog est nulle à chier",
     img: "images/kanchan.png",
   }
 ];
@@ -73,7 +73,7 @@ function renderPosts() {
     blogContainer.appendChild(article);
   });
 
-  pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+  pageInfo.textContent = `Page ${currentPage} sur ${totalPages}`;
   prevBtn.disabled = currentPage === 1;
   nextBtn.disabled = currentPage === totalPages;
 }
