@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sou-Long Mahjong</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/hatsu24.png" type="image/png" />
+  <link rel="icon" href="images/sls-icon64.png" type="image/png" />
   <!-- Font Awesome for Instagram icon -->
   <link
     rel="stylesheet"
@@ -16,37 +16,101 @@
   />
 </head>
 <body>
-  <nav>
-    <ul class="nav-menu">
-      <li><a href="index.html" class="active">Accueil</a></li>
-      <li class="dropdown">
-        <a href="quiz/machi.html">Quiz <i class="fas fa-caret-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="quiz/machi.html">Attentes</a></li>
-          <li><a href="quiz/tbd.html">TBD</a></li>
-        </ul>
-      </li>
-      <li><a href="club.html">Nous rencontrer</a></li>
-      <li><a href="https://instagram.com/yourprofile" target="_blank" class="instagram-link" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a></li>
-    </ul>
-  </nav>
+  <div class="header-flex">
+    <a href="index.html">
+      <img src="/images/logo31-wide.png" alt="Website Banner" class="site-banner">
+    </a>
+    <nav>
+      <ul class="nav-menu-vertical">
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="quiz/machi.html">Quiz</a></li>
+        <li><a href="club.html">Nous rencontrer</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="main-secondary">
+  <div class="main-secondary-flex">
+    <a href="club.html" class="main-secondary-img-link">
+      <img src="images/sls-reverse.png" alt="Logo Sou-Long Mahjong" class="main-secondary-img">
+    </a>
+    <div class="main-secondary-text">
+      <strong>
+        Club de Riichi basé à Toulouse<br>
+        Parties, tournois, initiation et convivialité<br>
+        Tous les mercredis soir à 19h !
+      </strong>
+    </div>
+    <div class="main-secondary-contact">
+      <div>
+        <span><a href="mailto:soulongmahjong@gmail.com">soulongmahjong@gmail.com</a></span><br>
+        <span>158 rue Henri Desbals <br>
+        31100 Toulouse<br>
+          <a href="https://instagram.com/yourprofile" target="_blank" class="instagram-link" aria-label="Instagram">
+            <img src="images/52px-Instagram_icon.png" class="insta-img"></img>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
 
   <main>
-    <h1>Sou-Long Mahjong</h1>
-
+    <h1>Événements et actualités</h1>
     <section id="blog-posts" class="blog-posts">
-      <!-- Génération dynamique du contenu et de la pagination -->
+      <article class="blog-preview">
+        <a href="posts/3-henri-desbals.html" class="blog-img-link">
+          <img src="images/henridesbals.webp" alt="Photo Henri Desbals" class="blog-thumb">
+        </a>
+        <div class="blog-preview-content">
+          <a href="posts/3-henri-desbals.html" class="blog-title-link">
+            <h2 class="blog-title">Nouveaux locaux à la rentrée</h2>
+          </a>
+          <div class="blog-date">17 septembre 2025</div>
+          <p class="blog-abstract">
+            Le club déménage au centre Culturel Henri Desbals ! À partir du 17 septembre, nous y serons tous les mercredi de 19h à 22h. <a href="posts/3-henri-desbals.html">
+            <br>Lire la suite...</a>
+          </p>
+        </div>
+      </article>
+      <article class="blog-preview">
+        <a href="posts/2-mini-tournoi-rentrée.html" class="blog-img-link">
+          <img src="images/auto1.jpg" alt="Image riichi table auto" class="blog-thumb">
+        </a>
+        <div class="blog-preview-content">
+          <a href="posts/2-mini-tournoi-rentrée.html" class="blog-title-link">
+            <h2 class="blog-title">Mini tournoi de rentrée</h2>
+          </a>
+          <div class="blog-date">13 septembre 2025</div>
+          <p class="blog-abstract">
+            Le club prévoit un mini-tournoi d'un jour le samedi 13 Septembre 2025. Ce sera l'occasion de passer un bon moment et de tester les nouvelles règles EMA. <a href="posts/2-mini-tournoi-rentrée.html">
+            <br>Lire la suite...</a>
+          </p>
+        </div>
+      </article>
+      <article class="blog-preview">
+        <a href="posts/1-tokyo-market.html" class="blog-img-link">
+          <img src="images/tokyo-market-preview.png" alt="Image Tokyo Market" class="blog-thumb">
+        </a>
+        <div class="blog-preview-content">
+          <a href="posts/1-tokyo-market.html" class="blog-title-link">
+            <h2 class="blog-title">Tokyo Market (Japan Touch)</h2>
+          </a>
+          <div class="blog-date">6 septembre 2025</div>
+          <p class="blog-abstract">
+            Le club proposera des parties d'initiation au jardin Compans Cafarelli le samedi 6 septembre à partir de 11h.<a href="posts/1-tokyo-market.html">
+            <br>Lire la suite...</a>
+          </p>
+        </div>
+      </article>
     </section>
 
-    <div class="pagination">
+<!--     <div class="pagination">
       <button id="prevPage" disabled>Précédent</button>
       <span id="pageInfo">Page 1</span>
       <button id="nextPage">Suivant</button>
     </div>
   </main>
-
-  <script src="blog-pagination.js"></script>
+  <script src="blog-pagination.js"></script> -->
 </body>
 </html>
