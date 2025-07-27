@@ -5,22 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Game Club Quiz</title>
   <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="quiz.css" />
-  <link rel="icon" href="../images/hatsu24.png" type="image/png">
+  <link rel="stylesheet" href="quiz/quiz.css" />
+  <link rel="icon" href="images/hatsu24.png" type="image/png">
 </head>
 <body>
-  <div class="header-flex">
-    <a href="../index.html">
-      <img src="/images/logo31-wide.png" alt="Website Banner" class="site-banner">
-    </a>
-    <nav>
-      <ul class="nav-menu-vertical">
-        <li><a href="../index.html" class="active">Accueil</a></li>
-        <li><a href="machi.html">Quiz</a></li>
-        <li><a href="../club.html">Nous rencontrer</a></li>
-      </ul>
-    </nav>
-  </div>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
 
   <main>
     <h1>Quiz 1 : Noms des attentes</h1>
@@ -39,6 +33,6 @@
     <div id="score" style="display:none;"></div>
   </main>
 
-  <script src="quiz.js"></script>
+  <script src="quiz/quiz.js"></script>
 </body>
 </html>

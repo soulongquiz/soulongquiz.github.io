@@ -16,18 +16,12 @@
   />
 </head>
 <body>
- <div class="header-flex">
-    <a href="index.html">
-      <img src="/images/logo31-wide.png" alt="Website Banner" class="site-banner">
-    </a>
-    <nav>
-      <ul class="nav-menu-vertical">
-        <li><a href="index.html" class="active">Accueil</a></li>
-        <li><a href="quiz/machi.html">Quiz</a></li>
-        <li><a href="club.html">Nous rencontrer</a></li>
-      </ul>
-    </nav>
-  </div>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
   <main>
     <h1>Nous rencontrer</h1>
     <p>À partir du 17 septembre 2025, le club se réunira tous les mercredis soirs de 19h à 22h, au centre culturel Henri Desbals (en face de la station de métro Bagatelle sur la ligne A).</p>

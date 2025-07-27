@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendrier - Sou-Long Mahjong</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/sls-icon64.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+<div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main class="main-secondary" style="max-width:900px;margin:2em auto;padding-bottom:0;">
+    <div class="main-secondary-flex" style="margin-bottom:0;">
+      <img src="images/sls-curious.png" alt="Mascotte Sou-Long Mahjong" class="main-secondary-img">
+      <div class="main-secondary-text">
+        <strong style="color:#920606;">
+          Consultez le calendrier du club pour les prochaines rencontres et événements !
+        </strong>
+      </div>
+    </div>
+    <iframe
+      src="https://calendar.google.com/calendar/embed?src=soulong.mahjong.toulouse%40gmail.com&ctz=Europe%2FParis"
+      style="border:0;width:100%;max-width:800px;height:600px;display:block;margin:0 auto 0 auto;"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen
+      aria-label="Calendrier Google Sou-Long Mahjong"
+    ></iframe>
+  </main>
+</body>
+</html>
