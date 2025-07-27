@@ -80,23 +80,46 @@
   }
   
   .nav-menu-vertical {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 0;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;      /* Center items vertically in grid cells */
+    justify-items: center;    /* Center items horizontally in grid cells */
+    min-width: 240px;
+    height: 120px;
   }
   
   .nav-menu-vertical > li {
     border-bottom: 1px solid #ccc;
-    width: 100%;
+    border-right: 1px solid #ccc;
     padding: 0.5em 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+  }
+
+  .nav-menu-vertical > li:nth-child(2),
+  .nav-menu-vertical > li:nth-child(4) {
+    border-right: none;
+  }
+
+  .nav-menu-vertical > li:nth-child(3),
+  .nav-menu-vertical > li:nth-child(4) {
+    border-bottom: none;
   }
   
-  .nav-menu-vertical > li:last-child {
-    border-bottom: none;
+  /* Remove left alignment for last row, keep all centered */
+  .nav-menu-vertical > li:nth-child(3),
+  .nav-menu-vertical > li:nth-child(4) {
+    justify-content: center;
+    text-align: center;
   }
   
   .nav-menu a {

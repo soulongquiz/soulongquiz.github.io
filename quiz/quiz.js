@@ -3,11 +3,11 @@ const quizData = [
     question: "Attentes de base",
     type: "matching",
     pairs: [
-      { left: { type: "image", src: "images/ryanmen.png", id: "Ryanmen" }, right: "Ryanmen" },
-      { left: { type: "image", src: "images/penchan.png", id: "Penchan" }, right: "Penchan" },
-      { left: { type: "image", src: "images/kanchan.png", id: "Kanchan" }, right: "Kanchan" },
-      { left: { type: "image", src: "images/tanki.png", id: "Tanki" }, right: "Tanki" },
-      { left: { type: "image", src: "images/shanpon.png", id: "Shanpon" }, right: "Shanpon" }
+      { left: { type: "image", src: "quiz/images/ryanmen.png", id: "Ryanmen" }, right: "Ryanmen" },
+      { left: { type: "image", src: "quiz/images/penchan.png", id: "Penchan" }, right: "Penchan" },
+      { left: { type: "image", src: "quiz/images/kanchan.png", id: "Kanchan" }, right: "Kanchan" },
+      { left: { type: "image", src: "quiz/images/tanki.png", id: "Tanki" }, right: "Tanki" },
+      { left: { type: "image", src: "quiz/images/shanpon.png", id: "Shanpon" }, right: "Shanpon" }
     ],
     feedbackCorrect: "Correct !",
     feedbackIncorrect: "Raté !"
@@ -16,10 +16,10 @@ const quizData = [
     question: "Attentes complexes : double attente",
     type: "matching",
     pairs: [
-      { left: { type: "image", src: "images/nobetan.png", id: "Nobetan" }, right: "Nobetan" },
-      { left: { type: "image", src: "images/aryanmen.png", id: "Aryanmen" }, right: "Aryanmen" },
-      { left: { type: "image", src: "images/kantan.png", id: "Kantan" }, right: "Kantan" },
-      { left: { type: "image", src: "images/pentan.png", id: "Pentan" }, right: "Pentan" }
+      { left: { type: "image", src: "quiz/images/nobetan.png", id: "Nobetan" }, right: "Nobetan" },
+      { left: { type: "image", src: "quiz/images/aryanmen.png", id: "Aryanmen" }, right: "Aryanmen" },
+      { left: { type: "image", src: "quiz/images/kantan.png", id: "Kantan" }, right: "Kantan" },
+      { left: { type: "image", src: "quiz/images/pentan.png", id: "Pentan" }, right: "Pentan" }
     ],
     feedbackCorrect: "Correct !",
     feedbackIncorrect: "Raté !"
@@ -28,17 +28,17 @@ const quizData = [
     question: "Attentes complexes : triple attente",
     type: "matching",
     pairs: [
-      { left: { type: "image", src: "images/sanmenchan.png", id: "Sanmenchan" }, right: "Sanmenchan" },
-      { left: { type: "image", src: "images/sanmentan.png", id: "Sanmentan" }, right: "Sanmentan" },
-      { left: { type: "image", src: "images/ryantan.png", id: "Ryantan" }, right: "Ryantan" },
-      { left: { type: "image", src: "images/ryankantan.png", id: "Ryankantan" }, right: "Ryankantan" }
+      { left: { type: "image", src: "quiz/images/sanmenchan.png", id: "Sanmenchan" }, right: "Sanmenchan" },
+      { left: { type: "image", src: "quiz/images/sanmentan.png", id: "Sanmentan" }, right: "Sanmentan" },
+      { left: { type: "image", src: "quiz/images/ryantan.png", id: "Ryantan" }, right: "Ryantan" },
+      { left: { type: "image", src: "quiz/images/ryankantan.png", id: "Ryankantan" }, right: "Ryankantan" }
     ],
     feedbackCorrect: "Correct !",
     feedbackIncorrect: "Raté !"
   },
   {
     question: "Quintuple attente",
-    image: "images/tatsumaki.png",
+    image: "quiz/images/tatsumaki.png",
     type: "multiple",
     options: ["Tatsumaki", "Hadouken", "Okizeme", "Keikoku"],
     answer: "Tatsumaki",
@@ -47,7 +47,7 @@ const quizData = [
   },
   {
     question: "Octuple attente",
-    image: "images/happoubijin.png",
+    image: "quiz/images/happoubijin.png",
     type: "multiple",
     options: ["Nakade", "Hachiko", "Happoubijin", "Yonrenkei"],
     answer: "Happoubijin",
