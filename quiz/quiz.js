@@ -1,4 +1,3 @@
-// Quiz data with examples
 const quizData = [
   {
     question: "Attentes de base",
@@ -261,7 +260,7 @@ checkBtn.onclick = () => {
   const q = quizData[currentQuestion];
   if (q.type === "multiple") {
     if (!selectedAnswers[currentQuestion]) {
-      alert("Please select an answer before checking.");
+      alert("Aucune réponse sélectionnée");
       disabledQuestions.add(currentQuestion);
       disableCurrentAnswerButtons();
       return;
@@ -275,7 +274,7 @@ checkBtn.onclick = () => {
   } else if (q.type === "matching") {
     const userPairs = matchAnswersPerQuestion[currentQuestion];
     if (!userPairs || Object.keys(userPairs).length < q.pairs.length) {
-      alert("Please match all pairs before checking.");
+      alert("Faites glisser tous les blocs de gauche dans les boites correspondantes");
       return;
     }
     let isCorrect = true;
