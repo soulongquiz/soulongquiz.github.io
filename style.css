@@ -511,6 +511,25 @@
   border-radius: 2px;
   margin-right: 0.5em;
 }
+.mail-img {
+  width: 36px;
+  height: 30px;
+  border-radius: 2px;
+  margin-right: 0.5em;
+}
+
+.mail-img,
+.insta-img {
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+}
+
+.main-secondary-contact a {
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+}
 
 @media (max-width: 600px) {
   .main-secondary-flex {
