@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tournois - Sou-Long Mahjong</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;">
+    <h1>Tournois à venir</h1>
+    <section class="blog-posts">
+      <article class="blog-preview">
+        <a href="tlsopen2025.html" class="blog-img-link">
+          <img src="images/labutte.jpg" alt="La Butte" class="blog-thumb">
+        </a>
+        <div class="blog-preview-content">
+          <a href="tlsopen2025.html" class="blog-title-link">
+            <h2 class="blog-title">Championnat de France Riichi 2025</h2>
+          </a>
+          <div class="blog-date">14-15 décembre 2025</div>
+          <p>
+            Le championnat de France de Riichi arrive à Toulouse !<br>
+            8 hanchans, 2 jours, 60 joueurs...<br>
+            <a href="tlsopen2025.html">Voir les détails &rarr;</a>
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
