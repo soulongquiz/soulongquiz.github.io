@@ -337,13 +337,35 @@
       line-height: 1.8;
       margin-bottom: 1em;
     }
+    @media (max-width: 950px) and (min-width: 900px) {
+      .mers-navbar-title span {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .mers-navbar-title span {
+        display: none;
+      }
+    }
+
+    @media (min-width: 761px) {
+      .smallscreen {
+        display: none;
+      }
+    }
+    @media (max-width: 760px) {
+      .bigscreen {
+        display: none;
+      }
+    }
+
   </style>
 </head>
 <body>
   <nav class="mers-navbar">
     <div class="mers-navbar-inner">
       <a href="/tourneys.html" class="mers-navbar-title" style="text-decoration:none;">
-        Championnat de France Riichi 2025
+        Championnat de France Riichi <span>2025</span>
       </a>
       <div class="mers-navbar-links">
         <a href="en.html" class="mers-nav-link fr-link" title="English">
@@ -364,8 +386,9 @@
     <a href="/index.html">
       <img src="/images/logo31-wide.png" alt="Website Banner" class="site-banner">
     </a>
-    <div class="tourney-title-container">
-      Championnat de France Riichi 2025
+    <div class="tourney-title-container" style="text-align:center;">
+      Championnat de France <br>
+      Riichi 2025
     </div>
   </div>
   <nav>
@@ -381,21 +404,45 @@
   <section id="information" class="mers-section">
     <h2>Information</h2>
     <table class="mers-table">
-      <tr>
+      <tr class="bigscreen">
         <th>Nom du tournoi</th>
         <td>Championnat de France Riichi 2025</td>
-        <th>Date</th>
+        <th >Date</th>
         <td>13-14 Decembre 2025</td>
       </tr>
-      <tr>
+      <tr class="bigscreen">
         <th>Poids</th>
         <td>MERS 2/3 ⚠️En attente d'approbation EMA</td>
         <th>Joueurs</th>
         <td>1/60</td>
       </tr>
-      <tr>
+      <tr class="bigscreen">
         <th>Règles</th>
         <td>EMA 2016</td>
+        <th>Pays</th>
+        <td>1</td>
+      </tr>
+      <tr class="smallscreen" >
+        <th>Nom du tournoi</th>
+        <td>Championnat de France Riichi 2025</td>
+      </tr>
+      <tr class="smallscreen" >
+        <th>Date</th>
+        <td>13-14 Decembre 2025</td>
+      </tr>
+      <tr class="smallscreen" >
+        <th>Poids</th>
+        <td>MERS 2/3 ⚠️En attente d'approbation EMA</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Joueurs</th>
+        <td>1/60</td>
+      </tr>
+      <tr class="smallscreen" >
+        <th>Règles</th>
+        <td>EMA 2016</td>
+      </tr>
+      <tr class="smallscreen">
         <th>Pays</th>
         <td>1</td>
       </tr>
@@ -407,9 +454,13 @@
         <th>Frais d'inscription</th>
         <td colspan="3">50€ - deux repas de midi inclus</td>
       </tr>    
-      <tr>
+      <tr class="bigscreen">
         <th>Format</th>
         <td colspan="3">8 hanchans "round-robin" : appariemments aléatoires sans rematch</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Format</th>
+        <td colspan="3">8 hanchans "round-robin" :<br> appariemments aléatoires sans rematch</td>
       </tr>
       <tr>
         <th>Arbitre</th>
@@ -419,10 +470,16 @@
         <th>Rapporteur EMA</th>
         <td colspan="3">À confirmer</td>
       </tr>
-      <tr>
+      <tr class="bigscreen">
         <th>Récompenses</th>
         <td colspan="3">Le top 3 recevra des prix individuels !<br/>
           Le meilleur joueur FFMJ recevra le titre de "Champion de France 2025" !</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Récompenses</th>
+        <td colspan="3">Le top 3 recevra des prix individuels !<br/>
+          Le meilleur joueur FFMJ recevra le <br>
+           titre de "Champion de France 2025" !</td>
       </tr>
       <tr>
         <th>Contact</th>

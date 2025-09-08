@@ -337,13 +337,35 @@
       line-height: 1.8;
       margin-bottom: 1em;
     }
+
+    @media (max-width: 950px) and (min-width: 900px) {
+      .mers-navbar-title span {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .mers-navbar-title span {
+        display: none;
+      }
+    }
+    
+    @media (min-width: 761px) {
+      .smallscreen {
+        display: none;
+      }
+    }
+    @media (max-width: 760px) {
+      .bigscreen {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
   <nav class="mers-navbar">
     <div class="mers-navbar-inner">
       <a href="/tourneys.html" class="mers-navbar-title" style="text-decoration:none;">
-        French Riichi Championship 2025
+        French Riichi Championship <span>2025</span> 
       </a>
       <div class="mers-navbar-links">
         <a href="fr.html" class="mers-nav-link fr-link" title="Français">
@@ -364,8 +386,9 @@
     <a href="/index.html">
       <img src="/images/logo31-wide.png" alt="Website Banner" class="site-banner">
     </a>
-    <div class="tourney-title-container">
-      French Riichi Championship 2025
+    <div class="tourney-title-container" style="text-align:center;">  
+      French Riichi <br>
+      Championship 2025
     </div>
   </div>
   <nav>
@@ -381,21 +404,45 @@
   <section id="information" class="mers-section">
     <h2>Information</h2>
     <table class="mers-table">
-      <tr>
+      <tr class="bigscreen">
         <th>Tournament Name</th>
         <td>French Riichi Championship 2025</td>
         <th>Date</th>
         <td>13-14 December 2025</td>
       </tr>
-      <tr>
+      <tr class="bigscreen">
         <th>Weight</th>
         <td>MERS 2/3 ⚠️EMA Approval Pending</td>
         <th>Players</th>
         <td>1/60</td>
       </tr>
-      <tr>
+      <tr class="bigscreen">
         <th>Rules</th>
         <td>EMA 2016</td>
+        <th>Countries</th>
+        <td>1</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Tournament Name</th>
+        <td>French Riichi Championship 2025</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Date</th>
+        <td>13-14 December 2025</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Weight</th>
+        <td>MERS 2/3 ⚠️EMA Approval Pending</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Players</th>
+        <td>1/60</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Rules</th>
+        <td>EMA 2016</td>
+      </tr>
+      <tr class="smallscreen">
         <th>Countries</th>
         <td>1</td>
       </tr>
@@ -407,9 +454,13 @@
         <th>Registration fee</th>
         <td colspan="3">50€ - includes two lunches</td>
       </tr>
-      <tr>
+      <tr class="bigscreen">
         <th>Format</th>
         <td colspan="3">8 hanchans "round-robin": randomized tables with no rematches</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Format</th>
+        <td colspan="3">8 hanchans "round-robin": <br> randomized tables with no rematches</td>
       </tr>
       <tr>
         <th>Referee</th>
@@ -419,10 +470,16 @@
         <th>EMA observer</th>
         <td colspan="3">TBA</td>
       </tr>
-      <tr>
+      <tr class="bigscreen">
         <th>Rewards</th>
         <td colspan="3">Top 3 players will receive individual prizes. <br/>
           Top ranked FFMJ player will be crowned "2025 French Champion"!</td>
+      </tr>
+      <tr class="smallscreen">
+        <th>Rewards</th>
+        <td colspan="3">Top 3 players will receive individual prizes. <br/>
+          Top ranked FFMJ player will be <br>
+          crowned "2025 French Champion"!</td>
       </tr>
       <tr>
         <th>Contact</th>
