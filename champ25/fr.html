@@ -46,6 +46,7 @@
       border-collapse: collapse;
       margin-bottom: 1.5em;
     }
+
     .mers-table th, .mers-table td {
       border: 1px solid #ddd;
       padding: 0.6em 1em;
@@ -607,7 +608,7 @@
   <section id="players" class="mers-section">
     <h2>Participant·es inscrit·es</h2>
     <div class="blog-date">Dernière mise à jour : le 22 septembre 2025</div>
-    <table class="mers-table">
+    <table class="mers-table" id="60-table">
       <tr>
         <th>#</th>
         <th>Nom</th>
@@ -1040,18 +1041,18 @@
   <section id="wait-list" class="mers-section">
     <h2>Liste d'attente</h2>
     <div class="blog-date">Dernière mise à jour : le 22 Septembre 2025</div>
-    <table class="mers-table">
+    <table class="mers-table" id="wait-table">
       <tr>
         <th>#</th>
         <th>Nom</th>
-        <th>Pays</th>
+        <th style="width: 40px">Pays</th>
         <th style="text-align: right">Numéro EMA</th>
         <th style="text-align: center">Frais payés</th>
       </tr>
       <tr>
         <td>1</td>
         <td>Danny Chan</td>
-        <td class="flag-cell"><img src="https://flagcdn.com/gb.svg" alt="France" style="width:26px;height:16px;"></td>
+        <td class="flag-cell"><img src="https://flagcdn.com/gb.svg" alt="France" style="width:24px;height:16px;"></td>
         <td style="text-align: right">11000013</td>
         <td class="fee-paid" style="color:gray;">-</td>
       </tr>
@@ -1085,5 +1086,26 @@
       document.querySelector('.mers-navbar-links').classList.toggle('active');
     });
   </script>
+    <script>
+    function syncTableWidths(table1, table2) {
+      const cols1 = table1.rows[0].cells; // first row of table1
+      const cols2 = table2.rows[0].cells; // first row of table2
+
+      for (let i = 0; i < cols1.length; i++) {
+        if (i != 2) {
+          const width = cols1[i].getBoundingClientRect().width; // actual rendered width
+          cols2[i].style.width = width + "px";
+        } // skip the flag column {
+      }
+    }
+
+    // Run once on load
+    syncTableWidths(document.getElementById("60-table"), document.getElementById("wait-table"));
+
+    // Also run again if window resizes (optional, for responsiveness)
+    window.addEventListener("resize", () => {
+      syncTableWidths(document.getElementById("60-table"), document.getElementById("wait-table"));
+    });
+</script>
 </body>
 </html>

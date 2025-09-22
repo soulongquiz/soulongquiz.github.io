@@ -603,7 +603,7 @@
   <section id="players" class="mers-section">
     <h2>Registered Players</h2>
     <div class="blog-date">Last updated: 22nd of September 2025</div>
-    <table class="mers-table">
+    <table class="mers-table" id="60-table">
       <tr>
         <th>#</th>
         <th>Name</th>
@@ -1036,11 +1036,11 @@
   <section id="wait-list" class="mers-section">
     <h2>Waiting List</h2>
     <div class="blog-date">Last updated: 22nd of September 2025</div>
-    <table class="mers-table">
+    <table class="mers-table" id="wait-table">
       <tr>
         <th>#</th>
         <th>Name</th>
-        <th>Country</th>
+        <th style="width: 40px">Country</th>
         <th style="text-align: right">EMA ID</th>
         <th style="text-align: center">Fee paid</th>
       </tr>
@@ -1079,5 +1079,27 @@
       document.querySelector('.mers-navbar-links').classList.toggle('active');
     });
   </script>
+  </script>
+    <script>
+    function syncTableWidths(table1, table2) {
+      const cols1 = table1.rows[0].cells; // first row of table1
+      const cols2 = table2.rows[0].cells; // first row of table2
+
+      for (let i = 0; i < cols1.length; i++) {
+        if (i != 2) {
+          const width = cols1[i].getBoundingClientRect().width; // actual rendered width
+          cols2[i].style.width = width + "px";
+        } // skip the flag column {
+      }
+    }
+
+    // Run once on load
+    syncTableWidths(document.getElementById("60-table"), document.getElementById("wait-table"));
+
+    // Also run again if window resizes (optional, for responsiveness)
+    window.addEventListener("resize", () => {
+      syncTableWidths(document.getElementById("60-table"), document.getElementById("wait-table"));
+    });
+</script>
 </body>
 </html>
