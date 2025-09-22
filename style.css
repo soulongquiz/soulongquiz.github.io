@@ -614,3 +614,10 @@
       padding-top: 0.5em;
     }
   }
+
+.tourneys-page .blog-date {
+  margin-bottom: 0.2em !important;
+}
+.tourneys-page .blog-preview-content p {
+  margin-top: 0.2em !important;
+}
