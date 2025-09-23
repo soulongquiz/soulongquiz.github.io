@@ -62,7 +62,8 @@ const players = [
   { name: 'Danny Chan', country: 'United Kingdom', emaNumber: '11000013', hasPaid: 'No' },
   { name: 'Adrien Leroy', country: 'France', emaNumber: '04520001', hasPaid: 'No' },
   { name: 'Dean Wang', country: 'Germany', emaNumber: '05000060', hasPaid: 'No' },
-  { name: 'Jeroen Chen', country: 'Netherlands', emaNumber: '08010752', hasPaid: 'No' }
+  { name: 'Jeroen Chen', country: 'Netherlands', emaNumber: '08010752', hasPaid: 'No' },
+  { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'No' }
 ];
 
 function getFlagUrl(country) {
@@ -81,6 +82,8 @@ function getFlagUrl(country) {
         url = 'https://flagcdn.com/de.svg';
     } else if (country === 'Netherlands') {
         url = 'https://flagcdn.com/nl.svg';
+    } else if (country === 'Poland') {
+        url = 'https://flagcdn.com/pl.svg';
     }
     return url;
 }
@@ -89,7 +92,7 @@ function getFlagUrl(country) {
 function renderTableRows(lang = "en") {
     var rows = '';
     players.forEach((player, index) => {
-        if (index >= 60) return; // Limit to first 60 players
+        if (index >= 64) return; // Limit to first 60 players
         rows += '<tr>';
         rows += '<td>' + (index + 1) + '</td>';
         rows += '<td>' + player.name + '</td>';
@@ -113,7 +116,7 @@ function renderTableRows(lang = "en") {
 function renderWaitRows() {
     var waitrows = '';
     players.forEach((player, index) => {
-        if (index < 60) return; // Limit to players beyond the first 60
+        if (index < 64) return; // Limit to players beyond the first 60
         waitrows += '<tr>';
         waitrows += '<td>' + (index + 1) + '</td>';
         waitrows += '<td>' + player.name + '</td>';
