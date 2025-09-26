@@ -65,6 +65,7 @@ const players = [
   { name: 'Jeroen Chen', country: 'Netherlands', emaNumber: '08010752', hasPaid: 'No' },
   { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'No' },
   { name: 'Kevin Young', country: 'Portugal', emaNumber: '', hasPaid: 'No' },
+  { name: 'Andy Xu', country: 'France', emaNumber: '', hasPaid: 'No' },
   { name: 'Alexis Gouet', country: 'France', emaNumber: '04310037', hasPaid: 'No' }
 ];
 
