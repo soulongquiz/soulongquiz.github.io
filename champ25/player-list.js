@@ -2,7 +2,7 @@ const players = [
   { name: 'Julien Delamarche', country: 'France', emaNumber: '04530005', hasPaid: 'Yes' },
   { name: 'Marion Hoarau', country: 'France', emaNumber: '04090005', hasPaid: 'No' },
   { name: 'Jérémie Pierard de Maujoy', country: 'France', emaNumber: '04160071', hasPaid: 'No' },
-  { name: 'Matthieu Fontaine', country: 'France', emaNumber: '04530001', hasPaid: 'No' },
+  { name: 'Matthieu Fontaine', country: 'France', emaNumber: '04530001', hasPaid: 'Yes' },
   { name: 'Antony Ea', country: 'France', emaNumber: '04041005', hasPaid: 'No' },
   { name: 'Anne Royet', country: 'France', emaNumber: '04090098', hasPaid: 'No' },
   { name: 'Omar Mansour', country: 'France', emaNumber: '04040321', hasPaid: 'No' },
@@ -66,7 +66,8 @@ const players = [
   { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'No' },
   { name: 'Kevin Young', country: 'Portugal', emaNumber: '', hasPaid: 'No' },
   { name: 'Andy Xu', country: 'France', emaNumber: '', hasPaid: 'No' },
-  { name: 'Alexis Gouet', country: 'France', emaNumber: '04310037', hasPaid: 'No' }
+  { name: 'Alexis Gouet', country: 'France', emaNumber: '04310037', hasPaid: 'No' },
+  { name: 'Guillaume Bonnamour', country: 'France', emaNumber: '04670003', hasPaid: 'No' }
 ];
 
 function getFlagUrl(country) {
