@@ -10,7 +10,7 @@ const players = [
   { name: 'Nicolas Baptiste', country: 'France', emaNumber: '04410014', hasPaid: 'No' },
   { name: 'Nehuen Penaloza', country: 'France', emaNumber: '04160088', hasPaid: 'Yes' },
   { name: 'Sergio Lima', country: 'Portugal', emaNumber: '12990014', hasPaid: 'No' },
-  { name: 'Henri Devillez', country: 'Belgium', emaNumber: '02010074', hasPaid: 'No' },
+  { name: 'Henri Devillez', country: 'Belgium', emaNumber: '02010074', hasPaid: 'Yes' },
   { name: "Christiane D'Angelo", country: 'France', emaNumber: '04040036', hasPaid: 'Yes' },
   { name: 'Pierric Willemet', country: 'France', emaNumber: '04310040', hasPaid: 'Yes' },
   { name: 'Karten Zajac', country: 'France', emaNumber: '04530008', hasPaid: 'Yes' },
