@@ -97,42 +97,85 @@ function getFlagUrl(country) {
 
 
 function renderTableRows(lang = "en") {
+    // Build registered (paid) list up to 64, push everyone else to waiting
+    const registered = [];
+    const waiting = [];
+
+    players.forEach(player => {
+        if (player.hasPaid === 'Yes' && registered.length < 64) {
+            registered.push(player);
+        } else {
+            waiting.push(player);
+        }
+    });
+
     var rows = '';
-    players.forEach((player, index) => {
-        if (index >= 64) return; // Limit to first 60 players
+    // Render registered players with numbering
+    registered.forEach((player, idx) => {
         rows += '<tr>';
-        rows += '<td>' + (index + 1) + '</td>';
+        rows += '<td>' + (idx + 1) + '</td>';
         rows += '<td>' + player.name + '</td>';
         rows += '<td class="flag-cell"><img src="' + getFlagUrl(player.country) + '" alt="' + player.country + '" style="width:24px;height:16px;"></td>';
-        rows += '<td style="text-align: right">' + player.emaNumber + '</td>';
-
+        rows += '<td style="text-align: right">' + (player.emaNumber || '') + '</td>';
         let color = (player.hasPaid === 'Yes') ? 'green' : 'red';
-        
-        // Translate depending on lang
         let paidText = player.hasPaid;
         if (lang === "fr") {
             paidText = (player.hasPaid === 'Yes') ? 'Oui' : 'Non';
         }
-
         rows += '<td class="fee-paid" style="color: ' + color + ';">' + paidText + '</td>';
         rows += '</tr>';
     });
+
+    // Fill up to 64 rows with empty placeholders
+    for (let i = registered.length; i < 64; i++) {
+        rows += '<tr>';
+        rows += '<td>' + (i + 1) + '</td>';
+        rows += '<td></td>';
+        rows += '<td class="flag-cell"></td>';
+        rows += '<td style="text-align: right"></td>';
+        rows += '<td class="fee-paid"></td>';
+        rows += '</tr>';
+    }
+
     document.getElementById('60-body').innerHTML = rows;
+
+    // Also render waiting rows for convenience (so a single call updates both)
+    renderWaitRowsFromArray(waiting, lang);
 }
 
 function renderWaitRows() {
+    // kept for compatibility, builds waiting list from scratch same as above
+    const registered = [];
+    const waiting = [];
+    players.forEach(player => {
+        if (player.hasPaid === 'Yes' && registered.length < 64) {
+            registered.push(player);
+        } else {
+            waiting.push(player);
+        }
+    });
+    renderWaitRowsFromArray(waiting, "en");
+}
+
+function renderWaitRowsFromArray(waitingArray, lang = "en") {
     var waitrows = '';
-    players.forEach((player, index) => {
-        if (index < 64) return; // Limit to players beyond the first 60
+    // Waiting list: first column is a greyed-out "-" to keep columns aligned,
+    // then Name, Flag, EMA ID (right), Fee Paid (localized)
+    waitingArray.forEach((player) => {
         waitrows += '<tr>';
-        waitrows += '<td>' + (index + 1) + '</td>';
+        waitrows += '<td class="row-num" style="color:#999;text-align:center;">-</td>';
         waitrows += '<td>' + player.name + '</td>';
-        waitrows += '<td class="flag-cell"><img src=\"' + getFlagUrl(player.country) + '" alt="' + player.country + '" style="width:24px;height:16px;"></td>';
-        waitrows += '<td style="text-align: right">' + player.emaNumber + '</td>';
+        waitrows += '<td class="flag-cell"><img src="' + getFlagUrl(player.country) + '" alt="' + player.country + '" style="width:24px;height:16px;"></td>';
+        waitrows += '<td style="text-align: right">' + (player.emaNumber || '') + '</td>';
 
-        let color = 'gray';
-
-        waitrows += '<td  class="fee-paid" style="color: ' + color + ';">' + 'N/A' + '</td>';
+        let color = (player.hasPaid === 'Yes') ? 'green' : 'red';
+        let paidText;
+        if (lang === "fr") {
+            paidText = (player.hasPaid === 'Yes') ? 'Oui' : 'Non';
+        } else {
+            paidText = (player.hasPaid === 'Yes') ? 'Yes' : 'No';
+        }
+        waitrows += '<td class="fee-paid" style="color: ' + color + ';">' + paidText + '</td>';
         waitrows += '</tr>';
     });
     document.getElementById('wait-body').innerHTML = waitrows;
