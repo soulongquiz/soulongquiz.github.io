@@ -9,7 +9,7 @@ const players = [
   { name: 'Sacha Dunan', country: 'France', emaNumber: '04320030', hasPaid: 'Yes' },
   { name: 'Nicolas Baptiste', country: 'France', emaNumber: '04410014', hasPaid: 'Yes' },
   { name: 'Nehuen Penaloza', country: 'France', emaNumber: '04160088', hasPaid: 'Yes' },
-  { name: 'Sergio Lima', country: 'Portugal', emaNumber: '12990014', hasPaid: 'No' },
+  { name: 'Sergio Lima', country: 'Portugal', emaNumber: '12990014', hasPaid: 'Yes' },
   { name: 'Henri Devillez', country: 'Belgium', emaNumber: '02010074', hasPaid: 'Yes' },
   { name: "Christiane D'Angelo", country: 'France', emaNumber: '04040036', hasPaid: 'Yes' },
   { name: 'Pierric Willemet', country: 'France', emaNumber: '04310040', hasPaid: 'Yes' },
@@ -56,16 +56,16 @@ const players = [
   { name: 'Silène Yu', country: 'France', emaNumber: '04690001', hasPaid: 'Yes' },
   { name: 'Zageeth Mannokaran', country: 'France', emaNumber: '04160108', hasPaid: 'Yes' },
   { name: 'Abdelah El Fahim', country: 'France', emaNumber: '04600002', hasPaid: 'Yes' },
-  { name: 'Abdoullah Abid', country: 'France', emaNumber: '04600003', hasPaid: 'Yes' },
+  { name: 'Abdoullah Abid', country: 'France', emaNumber: '04600003', hasPaid: 'No' },
   { name: 'Rayen Haddad', country: 'France', emaNumber: '04600016', hasPaid: 'No' },  
   { name: 'Adrien Leroy', country: 'France', emaNumber: '04520001', hasPaid: 'Yes' },
   { name: 'Dean Wang', country: 'Germany', emaNumber: '05000060', hasPaid: 'No' },
   { name: 'Jeroen Chen', country: 'Netherlands', emaNumber: '08010752', hasPaid: 'Yes' },
-  { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'No' },
+  { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'Yes' },
   { name: 'Andy Xu', country: 'France', emaNumber: '04530017', hasPaid: 'No' },
   { name: 'Alexis Gouet', country: 'France', emaNumber: '04310037', hasPaid: 'No' },
   { name: 'Guillaume Bonnamour', country: 'France', emaNumber: '04670003', hasPaid: 'No' },
-  { name: 'Cécile Blanc', country: 'France', emaNumber: '04320014', hasPaid: 'No' },
+  { name: 'Cécile Blanc', country: 'France', emaNumber: '04320014', hasPaid: 'Yes' },
   { name: 'Theophane Jeronimo', country: 'France', emaNumber: '04670008', hasPaid: 'No' },
   { name: 'Claire Warin', country: 'France', emaNumber: '04310079', hasPaid: 'No' },
   { name: 'Pei Tang', country: 'Germany', emaNumber: '05000071', hasPaid: 'No' },
@@ -154,7 +154,14 @@ function renderWaitRows() {
             waiting.push(player);
         }
     });
-    renderWaitRowsFromArray(waiting, "en");
+
+    // If no lang provided, infer from document; otherwise use provided value
+    if (typeof lang === 'undefined' || lang === null) {
+        const docLang = (document.documentElement.lang || '').toLowerCase();
+        lang = docLang.startsWith('fr') ? 'fr' : 'en';
+    }
+
+    renderWaitRowsFromArray(waiting, lang);
 }
 
 function renderWaitRowsFromArray(waitingArray, lang = "en") {
