@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Initiation à Fonbeauzard - Sou-Long Mahjong</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="post-style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+  <main>
+    <h1>Initiation à Fonbeauzard</h1>
+    <img src="../images/ShiroFonbo1erNov25.png" alt="Photo Henri Desbals" class="blog-full-img">
+    <div class="blog-date">1-2 Novembre 2025</div>
+    <p>
+      Sou-Long Mahjong sera présent à Fonbeauzard, dans le cadre du festival Shiro Fonbo !<br>
+      <a href="https://subverti.com/fr/maps/associations/shiro-fonbo/" target="_blank" rel="noopener noreferrer">Shiro Fonbo</a> est une association de jeux de société, qui organise un festival libre d'accès le premier week-end de novembre.<br>
+      Nous aurons une table d'initiation et nous proposerons des parties pédagogiques sur la durée du festival. <br>
+      Nos amis du Blue Frog Mah-jong Club seront également présents pour proposer de l'initation.
+      Venez nous rencontrer et découvrir le mahjong !
+    </p>
+    <a href="../index.html">← Retour aux actualités</a>
+  </main>
+</body>
+</html>
