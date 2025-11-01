@@ -67,10 +67,10 @@ const players = [
   { name: 'Guillaume Bonnamour', country: 'France', emaNumber: '04670003', hasPaid: 'No' },
   { name: 'Cécile Blanc', country: 'France', emaNumber: '04320014', hasPaid: 'Yes' },
   { name: 'Theophane Jeronimo', country: 'France', emaNumber: '04670008', hasPaid: 'No' },
-  { name: 'Claire Warin', country: 'France', emaNumber: '04310079', hasPaid: 'No' },
-  { name: 'Pei Tang', country: 'Germany', emaNumber: '05000071', hasPaid: 'No' },
+  { name: 'Claire Warin', country: 'France', emaNumber: '04310079', hasPaid: 'Yes' },
+  { name: 'Pei Tang', country: 'Germany', emaNumber: '05000071', hasPaid: 'Yes' },
   { name: 'Feiyang Qiu', country: 'Belgium', emaNumber: '02000043', hasPaid: 'No' },
-  { name: 'Florent Guth', country: 'France', emaNumber: '', hasPaid: 'No' }
+  { name: 'Florent Guth', country: 'France', emaNumber: '', hasPaid: 'Yes' }
 ];
 
 function getFlagUrl(country) {
