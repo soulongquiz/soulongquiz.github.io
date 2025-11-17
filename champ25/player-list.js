@@ -3,7 +3,7 @@ const players = [
   { name: 'Marion Hoarau', country: 'France', emaNumber: '04090005', hasPaid: 'Yes' },
   { name: 'Jérémie Pierard de Maujoy', country: 'France', emaNumber: '04160071', hasPaid: 'Yes' },
   { name: 'Matthieu Fontaine', country: 'France', emaNumber: '04530001', hasPaid: 'Yes' },
-  { name: 'Antony Ea', country: 'France', emaNumber: '04041005', hasPaid: 'Yes' },
+  { name: 'Anthony Ea', country: 'France', emaNumber: '04041005', hasPaid: 'Yes' },
   { name: 'Anne Royet', country: 'France', emaNumber: '04090098', hasPaid: 'Yes' },
   { name: 'Omar Mansour', country: 'France', emaNumber: '04040321', hasPaid: 'Yes' },
   { name: 'Sacha Dunan', country: 'France', emaNumber: '04320030', hasPaid: 'Yes' },
