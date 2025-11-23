@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TGS Toulouse 2025 — Sou-Long Mahjong</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+      <a href="#" class="blog-img-link">
+        <img src="/images/TGS_Toulouse.png" alt="TGS Toulouse" class="blog-thumb" style="width:100%;height:auto;object-fit:cover;border-radius:8px;">
+      </a>
+
+      <header style="margin-top:1em;">
+        <h1 class="blog-title">Retrouvez-nous au TGS 2025</h1>
+        <div class="blog-date">29-30 novembre 2025</div>
+      </header>
+
+      <section class="blog-content" style="margin-top:1em;line-height:1.6;color:#222;">
+        <p>
+          Le dernier week-end de novembre, au MEET, le club sera présent au TGS Toulouse pour animer des tables d'initiation au mahjong riichi !
+        </p>
+
+        <p>
+          Vous venez au TGS et vous souhaitez découvrir le club ou le jeu de mahjong ? Passez nous voir au stand 625 !
+        </p>
+
+        <figure style="margin:1em 0;text-align:center;">
+          <img src="/images/planTGS2025.png" alt="Plan TGS 2025 - emplacement Sou-Long" style="max-width:100%;height:auto;border-radius:8px;">
+          <figcaption style="font-size:0.95em;color:#666;margin-top:0.4em;">Plan d'accès au stand Sou-Long (TGS Toulouse 2025)</figcaption>
+        </figure>
+        <p>
+          Pensez à prévoir l'achat d'un <a href="https://tgs-toulouse.fr/billetterie">billet d'entrée</a> au TGS si vous souhaitez nous rendre visite !
+        </p>
+
+        <p style="margin-top:2em;">
+          <a href="/index.html" style="text-decoration:none;color:#920606;">← Retour à l'accueil</a>
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
