@@ -31,7 +31,6 @@ const players = [
   { name: 'Hugues Motte', country: 'France', emaNumber: '04530016', hasPaid: 'Yes' },
   { name: 'Lilian Billod', country: 'France', emaNumber: '04670001', hasPaid: 'Yes' },
   { name: 'Anthony Suong', country: 'France', emaNumber: '04300046', hasPaid: 'Yes' },
-  { name: 'Vianney Heimburger', country: 'France', emaNumber: '04670004', hasPaid: 'Yes' },
   { name: 'Manuel Santos', country: 'France', emaNumber: '04290023', hasPaid: 'Yes' },
   { name: 'Fabien François', country: 'France', emaNumber: '04990118', hasPaid: 'Yes' },
   { name: 'Benoît Messi-Fouda', country: 'France', emaNumber: '04040026', hasPaid: 'No' },
@@ -62,7 +61,6 @@ const players = [
   { name: 'Dean Wang', country: 'Germany', emaNumber: '05000060', hasPaid: 'No' },
   { name: 'Jeroen Chen', country: 'Netherlands', emaNumber: '08010752', hasPaid: 'Yes' },
   { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'Yes' },
-  { name: 'Andy Xu', country: 'France', emaNumber: '04530017', hasPaid: 'No' },
   { name: 'Alexis Gouet', country: 'France', emaNumber: '04310037', hasPaid: 'No' },
   { name: 'Guillaume Bonnamour', country: 'France', emaNumber: '04670003', hasPaid: 'No' },
   { name: 'Cécile Blanc', country: 'France', emaNumber: '04320014', hasPaid: 'Yes' },
@@ -70,7 +68,8 @@ const players = [
   { name: 'Claire Warin', country: 'France', emaNumber: '04310079', hasPaid: 'Yes' },
   { name: 'Pei Tang', country: 'Germany', emaNumber: '05000071', hasPaid: 'Yes' },
   { name: 'Feiyang Qiu', country: 'Belgium', emaNumber: '02000043', hasPaid: 'No' },
-  { name: 'Florent Guth', country: 'France', emaNumber: '', hasPaid: 'Yes' }
+  { name: 'Florent Guth', country: 'France', emaNumber: '04530021', hasPaid: 'Yes' },
+  { name: 'Andy Xu', country: 'France', emaNumber: '04530017', hasPaid: 'Yes' }
 ];
 
 function getFlagUrl(country) {
