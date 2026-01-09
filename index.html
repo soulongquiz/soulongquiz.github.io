@@ -23,30 +23,10 @@
       .then(response => response.text())
       .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
   </script>
+  <!-- INSERT : bannière tournoi dans unused -->
 
-  <main class="main-secondary" style="background-color:#3D2205;">
-  <div class="main-secondary-flex" >
-    <a href="tourneys.html" class="main-secondary-img-link">
-      <img src="images/mascot-eating.png" alt="Mascotte qui mange" class="main-secondary-img">
-    </a>
-    <div class="main-secondary-text" style="color: #F5E9C3; text-align: center;font-size: 1.35em;">
-      <strong>
-        <a href="champ25/fr.html" style="color: #F5E9C3; text-decoration: none;">
-          <img src="https://flagcdn.com/fr.svg" alt="Français" style="width:32px;height:20px;vertical-align:middle;"> Le Championnat de France Riichi 2025 est complet !
-        </a>
-        <br>
-        <br>
-        <a href="champ25/en.html" style="color: #F5E9C3; text-decoration: none;">
-          <img src="https://flagcdn.com/gb.svg" alt="English" style="width:32px;height:32px;vertical-align:middle;"> The French Riichi Championship 2025 is sold out!
-        </a>
-      </strong>
-    </div>
-    <a href="tourneys.html" class="main-secondary-img-link">
-      <img src="images/mascot-tada-left.png" alt="Confettis vers la gauche" class="main-secondary-img">
-    </a>
-    </div>
-  </div>
-</main>
+  <!-- /INSERT -->
+  
   <!-- INSERT : avertissement temporaire dispo dans unused.txt -->
 
   <!-- /INSERT -->
@@ -85,6 +65,21 @@
   <main>
     <h1>Événements et actualités</h1>
     <section id="blog-posts" class="blog-posts">
+    <article class="blog-preview">
+        <a href="posts/6-bilan-2025.html" class="blog-img-link">
+          <img src="images/fireworks.png" alt="Fireworks" class="blog-thumb">
+        </a>
+        <div class="blog-preview-content">
+          <a href="posts/6-bilan-2025.html" class="blog-title-link">
+            <h2 class="blog-title">Bonne année 2026!</h2>
+          </a>
+          <div class="blog-date">Et bonne santé</div>
+          <p class="blog-abstract">
+            Retour sur 2025 et regards sur 2026...<a href="posts/6-bilan-2025.html">
+            <br>Lire la suite...</a>
+          </p>
+        </div>
+    </article>  
     <article class="blog-preview">
         <a href="posts/5-tgs-toulouse.html" class="blog-img-link">
           <img src="images/TGS_occitanie.png" alt="Logo TGS" class="blog-thumb">

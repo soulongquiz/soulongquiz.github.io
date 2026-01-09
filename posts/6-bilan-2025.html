@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bonne année 2026 !</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+      <header style="margin-top:1em;">
+        <h1 class="blog-title" style="text-align:left">Bonne année 2026 !</h1>
+        <div class="blog-date">Retour sur 2025</div>
+      </header>
+
+      <section class="blog-content" style="margin-top:1em;line-height:1.6;color:#222;">
+        <p>
+          Grâce aux festivals et au site web, nous avons recruté plus d'une douzaine de membre depuis le début de la rentrée ! Nous sommes maintenant une trentaine de licencié·e·s ! 
+        </p>
+
+        <p>
+          Nous sommes de plus en plus nombreux, avec un record de 8 tables à la dernière session 2025. Si ça continue, il va falloir déménager dans une salle plus grande...
+        </p>
+
+        <p>
+          Le championnat de France 2025 a été un grand succès ! Bravo au champion et à nos primo-participants, et un grand merci au bénévoles, aux arbitres et au Blue Frog Mahjong qui ont permis que le tournoi se déroule dans les meilleures conditions !
+        </p>
+        
+        <p style="margin:1em 0;">
+          <strong>Nos projets pour 2026 :</strong>
+          <ul style="margin:0.5em 0 0 1.5em;padding:0;">
+            <li>Continuer les sessions régulières du mercredi soir (hors vacances scolaires)</li>
+            <li>Sessions hebdomadaires en ligne le dimanche</li>
+            <li>Toujours plus de festivals : Avril (Manga Touch), Mai (Festival du jeu) et Juin (TGS Springbreak)</li>
+            <li>Préparation d'un tournoi WRL en mars et d'un autre évènement en fin de saison</li>
+            <li>Participation en masse du club au tournoi Miss&Mister Riichi du week-end de la saint valentin à Paris</li>
+            <li>Co-organisation et participation à la Ligue Française des Clubs de Riichi (le vainqueur ira au mondial des clubs en mai !) </li>
+            <li>Création de merch du club (écocup + gilets ou polos)</li>
+          </ul>
+        </p>
+        <p>
+          Voilà, un excellent début de saison grâce à vous tous, et plein de projets pour ce début 2026 ! On est ravis de jouer au mahjong avec vous et on espère pouvoir continuer comme ça encore longtemps !
+        </p>
+        <p style="margin-top:2em;">
+          <a href="/index.html" style="text-decoration:none;color:#920606;">← Retour à l'accueil</a>
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
