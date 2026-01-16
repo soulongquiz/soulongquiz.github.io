@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Résultats du Championnat de France Riichi 2025</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+
+      <section style="display: flex; align-items: flex-start; gap: 1em; margin-top: 1em;">
+        <div style="flex: 1; padding-left: 1em;">
+          <h1 class="blog-title" style="text-align: left;">Résultats du Championnat de France Riichi 2025</h1>
+          <div class="blog-date">16 janvier 2026</div>
+          <p style="padding-right: 2em;">
+            Le championnat de France de Riichi 2025 s'est tenu les 13 et 14 décembre à Toulouse. Il s'agissait du premier tournoi EMA organisé par notre club Sou-Long Mahjong, mais il s'est heureusement déroulé dans de très bonnes conditions grâce aux organisateur·ice.s, aux bénévoles, aux arbitres, ainsi qu'au soutien logistique du Blue Frog Mahjong. Merci !!
+          </p>
+          <p style="padding-right: 2em;">
+            Après deux journées de compétion intense, c'est notre ami d'Évry, Anthony, qui remporte le titre de champion de France Riichi 2025 ! Félicitations à lui ainsi qu'à tous les participant·e·s !
+          </p>
+          <p style="padding-right: 2em;">
+            <a href="https://www.mahjongtournamentmanager.com/tournament/rcr/ranking/individual.php?tn=1764831325700&sn=8&sp=0" style="text-decoration:none;color:#920606;">Voici le lien vers les résultats complets et le classement final</a>
+          </p>
+          <p style="padding-right: 2em;">
+            <a href="http://mahjong-europe.org/ranking/Tournament/TR_RCR_400.html" style="text-decoration:none;color:#920606;">Lien vers la page du tournoi sur le site de l'EMA</a>
+          </p>
+          <p style="padding-right: 2em;">
+            <a href="/doc/cdf-report.pdf" style="text-decoration:none;color:#920606;">Rapport de l'observateur EMA</a>
+          </p>
+        </div>
+        <img src="../images/cdf25-sticker.png" alt="CDF 2025 Sticker" style="width: 43%; height: auto;">
+      </section>
+
+      <section class="blog-content" style="margin-top:1em;line-height:1.6;color:#222;">
+        <div style="display: flex; gap: 0.5em;">
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-podium.png" alt="Podium CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-chiffres.png" alt="Chiffres CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+        </div>
+        <div style="display: flex; gap: 0.5em;">
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-wideshot1.jpg" alt="Photo 1 CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-wideshot2.jpg" alt="Photo 2 CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+        </div>
+        <figure style="margin:0;text-align:center;">
+          <img src="/images/cdf25-group.jpg" alt="Photo Groupe CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+        </figure>
+        <p style="padding-right: 2em;">
+            <a href="/download/cdf-photos.zip" download style="text-decoration:none;color:#920606;">Télécharger plus de photos du CDF 2025</a>
+          </p>
+        <p style="margin-top:2em;">
+          <a href="/tourneys.html" style="text-decoration:none;color:#920606;">← Retour à l'accueil</a>
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

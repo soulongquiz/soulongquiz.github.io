@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results of the 2025 French Riichi Championship</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+
+      <section style="display: flex; align-items: flex-start; gap: 1em; margin-top: 1em;">
+        <div style="flex: 1; padding-left: 1em;">
+          <h1 class="blog-title" style="text-align: left;">Results of the 2025 French Riichi Championship</h1>
+          <div class="blog-date">January 16, 2026</div>
+          <p style="padding-right: 2em;">
+            The 2025 French Riichi Championship was held on December 13 and 14 in Toulouse. It was the first EMA tournament organized by our Sou-Long Mahjong club, but it fortunately took place under very good conditions thanks to the organizers, volunteers, referees, as well as the logistical support from Blue Frog Mahjong. Thank you!!
+          </p>
+          <p style="padding-right: 2em;">
+            After two days of intense competition, it's our friend from Évry, Anthony, who wins the title of 2025 French Riichi Champion! Congratulations to him as well as to all the participants!
+          </p>
+          <p style="padding-right: 2em;">
+            <a href="https://www.mahjongtournamentmanager.com/tournament/rcr/ranking/individual.php?tn=1764831325700&sn=8&sp=0" style="text-decoration:none;color:#920606;">Here is the link to the complete results and final ranking</a>
+          </p>
+          <p style="padding-right: 2em;">
+            <a href="http://mahjong-europe.org/ranking/Tournament/TR_RCR_400.html" style="text-decoration:none;color:#920606;">Link to the tournament page on the EMA website</a>
+          </p>
+          <p style="padding-right: 2em;">
+            <a href="/doc/cdf-report.pdf" style="text-decoration:none;color:#920606;">EMA Observer Report</a>
+          </p>
+        </div>
+        <img src="../images/cdf25-sticker.png" alt="CDF 2025 Sticker" style="width: 43%; height: auto;">
+      </section>
+
+      <section class="blog-content" style="margin-top:1em;line-height:1.6;color:#222;">
+        <div style="display: flex; gap: 0.5em;">
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-podium.png" alt="Podium CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-chiffres.png" alt="Chiffres CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+        </div>
+        <div style="display: flex; gap: 0.5em;">
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-wideshot1.jpg" alt="Photo 1 CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+          <figure style="width: 50%; margin: 0;">
+            <img src="/images/cdf25-wideshot2.jpg" alt="Photo 2 CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+          </figure>
+        </div>
+        <figure style="margin:0;text-align:center;">
+          <img src="/images/cdf25-group.jpg" alt="Photo Groupe CDF 2025" style="max-width:100%;height:auto;border-radius:8px;">
+        </figure>
+        <p style="padding-right: 2em;">
+            <a href="/download/cdf-photos.zip" download style="text-decoration:none;color:#920606;">Download more photos from the 2025 CDF</a>
+          </p>
+        <p style="margin-top:2em;">
+          <a href="/tourneys.html" style="text-decoration:none;color:#920606;">← Back to home</a>
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
