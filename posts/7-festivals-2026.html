@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Festivals à venir - Sou-Long Mahjong</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="post-style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+  <main>
+    <h1>Festivals à venir</h1>
+
+    <img src="../images/teamfestival.jpg" alt="Team Festivals" class="blog-full-img">
+    <div class="blog-date">1er semestre 2026</div>
+    <p>
+      Retrouvez le club aux différents festivals de la région toulousaine de mars à juin 2026.<br>
+      Nous proposerons une à deux tables d'initiation au mahjong lors de ces événements, n'hésitez pas à venir nous voir pour découvrir le jeu ou simplement discuter !<br>
+    </p>
+    <ul>
+      <li><strong>Blagnac joue</strong> - 7 mars (34 chemin des ramiers, Blagnac)</li>
+      <li><strong>Manga Touch Plaisance</strong> - 11-12 avril (Espace Monestié, Plaisance-du-Touch)</li>
+      <li><strong>Alchimie du jeu</strong> - 8-9-10 mai (MEET)</li>
+      <li><strong>TGS Springbreak</strong> - 13 juin (Diagora Labège)</li>
+      <li><strong>Fêtes des associations</strong> - 13 juin (Place du Capitole)</li>
+    </ul>
+    
+    <a href="../index.html">← Retour aux actualités</a>
+  </main>
+</body>
+</html>

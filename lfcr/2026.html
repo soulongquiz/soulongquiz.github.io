@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ligue des Clubs de France - Sou-Long Mahjong</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="tourneys-page">
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+
+      <section style="display: flex; align-items: flex-start; gap: 1em; margin-top: 1em;">
+        <div style="flex: 1; padding-left: 1em;">
+          <h1 class="blog-title" style="text-align: left;">Présentation de la Ligue Française des Clubs de Riichi</h1>
+          <div class="blog-date">2 février - 7 avril 2026</div>
+          <p style="padding-right: 2em;">
+            En partenariat avec la Fédération Française de Mahjong, le comité d'organisation de la Ligue du Sud est fier de vous présenter la première édition de la LFCR !
+          </p>
+
+          <h4 style="margin-top: 1.5em;">C'est quoi ?</h4>
+          <p style="padding-right: 2em;">
+            Les clubs de riichi FFMJ forment des équipes pour participer à une ligue. Le club vainqueur gagnera le titre de meilleur club français 2026 😤 ainsi qu'une qualification pour un tournoi en mai de type "mondial des clubs", où participeront les clubs de riichi du monde entier. 🌎 🏆
+          </p>
+
+          <h4>C'est où ?</h4>
+          <p style="padding-right: 2em;">
+            En ligne sur Mahjong Soul 💻 😺
+          </p>
+
+          <h4>C'est quand ?</h4>
+          <p style="padding-right: 2em;">
+            Phase régulière : 14 sessions de 4h étalés sur tout le mois en février 🗓️<br>
+            Phase finale : arbre à élimination simple en trois journées, du 15 mars au 7 avril 🗡️ 
+          </p>
+
+          <h4>Ça marche comment ?</h4>
+          <p style="padding-right: 2em;">
+            <i>Phase régulière :</i> Les membres d'équipes jouent librement sur les créneaux prévus. Les scores individuels participent tous au score du club dans la saison régulière.
+          </p>
+          <p style="padding-right: 2em;">
+            <i>Phase finale :</i> les 12 meilleures équipes arrivent dans l'arbre final. Le top 4 est directement placé en demi-finales, les équipes 5 à 12 jouent un quart de finale de barrage. Un match de phase finales fait s'affronter 4 équipes de 4 joueurs, sur 4 tables parralèles pour une durée totale de 4h. À la fin des 16 hanchans, les 2 meilleures équipes en score cumulé avancent.
+          </p>
+
+          <h4>Quelles sont les règles</h4>
+          <p style="padding-right: 2em;">
+            <i>Règles M-League :</i><br>
+            <ul>
+              <li>Score de départ : 25,000 points</li>
+              <li>Oka + Uma : +45/+5/-15/-35</li>
+              <li>Égalité : Les points bonus sont partagés entre les joueur·ses concerné·es</li>
+              <li>Pas de banqueroute</li>
+              <li>Pas de round d'extension</li>
+              <li>Pas de ron multiple. Atamahane est actif</li>
+              <li>Fu : Pair du double-vent vaut 2 fu</li>
+              <li>Pas d'annulation de partie</li>
+              <li>Pas d'agariyame ni de tenpaiyame</li>
+              <li>Kiriage Mangan actif</li>
+              <li>Aka-Dora : 3 tuiles (une pour chaque 5-pin / 5-sou / 5-man)</li>
+              <li>Kandora : Toujours dévoiler la nouvelle dora. Lors d'un chankan, pas de kandora dévoilée</li>
+              <li><strong>Yakuman :</strong>
+                <ul>
+                  <li>Pas de yakuman compté, cappé à sanbaiman</li>
+                  <li>Pas de double yakuman : suuanko tanki / kokushi 13-attentes / junsei chuuren poutou compte comme un simple yakuman; Daisuushi compte comme un simple yakuman</li>
+                  <li>Multiple yakuman autorisé, différents yakuman peuvent être accumulés</li>
+                  <li>Pao actif pour daisagen, daisuushi et suukantsu. Le pao de suukantsu ne s'applique que quand le sankantsu est complété et que le quatrième kan est un kan ouvert (daiminkan)</li>
+                </ul>
+              </li>
+            </ul> 
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5em; align-items: center; flex: 1;">
+          <img src="../images/lfcr-logo.png" alt="LFCR Logo" style="width: 100%; max-width: 400px; height: auto;">
+          <div style="text-align: center;">
+            <img src="/images/lfcr/planning-vertical.png" alt="Planning finales" style="width: 100%; max-width: 350px; height: auto; margin-bottom: 0.5em;">
+          </div>
+          <div style="text-align: center;">
+            <img src="/images/lfcr/rankD2.png" alt="Classement D2" style="width: 100%; max-width: 350px; height: auto;">
+            <p style="margin-top: 0.5em; font-size: 0.9em;">Classement à l'issu de la deuxième journée</p>
+          </div>
+        </div>
+      </section>
+
+      <div style="display: flex; gap: 1em; justify-content: center; margin: 2em auto; flex-wrap: wrap; max-width: 900px;">
+      </div>
+
+      <h4 style="margin-top: 2em; padding: 1em;">Quels sont les clubs ?</h4>
+      <table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
+        <thead>
+          <tr style="background-color: #920606; color: white;">
+            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Ville</th>
+            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Club</th>
+            <th style="padding: 2px; text-align: center; border: 1px solid #ddd;">Logo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Angers</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Shâ Mahjong</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Angers.png" alt="Angers" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Bordeaux</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Furiten Ya</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Bordeaux.jpg" alt="Bordeaux" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Bourgoin-Jallieu</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Ron'Alpes</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Bourgouin.webp" alt="Bourgoin" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Cannes</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Suu Cannes Tsu</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Cannes.png" alt="Cannes" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Lyon, Valence, Villefranche</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Tsumo'Alpes</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Union LVV.jpeg" alt="Coalition LVV" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Rennes, Nantes, Parthenay</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Breizh Mahjong + Party Game of West Area + Mahjong en Gâtine</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Union RNP.png" alt="Coalition RNP" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Évry-Courcourrones</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Évriichi</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Evry.png" alt="Evry" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">La Réunion (Saint Denis, Saint Pierre)</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Mahjong Spirit + Vent du Sud + Panthère Club</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Réunion.png" alt="La Réunion" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Lille</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">La Voix du Mahjong</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Lille.jpg" alt="Lille" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Marseille</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Chuuren Potos</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Marseille.jpg" alt="Marseille" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Montpellier</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Mahjong Club Montpellier</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Montpellier.png" alt="Montpellier" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Mulhouse</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Free Dragons</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Mulhouse.png" alt="Mulhouse" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Paris</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Tri Nitro Tiles</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;">
+              <div style="display: inline-block; background-color: #d0d0d0; padding: 6px;">
+                <img src="/images/lfcr-teams/Paris.png" alt="Paris" style="height: 120px; width: auto; display: block;">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Saint-Brieuc</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Griffon Ludique</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/StBrieuc.png" alt="Saint-Brieuc" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Strasbourg</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Vent d'Est</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Strasbourg.png" alt="Strasbourg" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;">Toulouse</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Sou-Long Mahjong</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Toulouse.png" alt="Toulouse" style="height: 120px; width: auto;"></td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 12px; border: 1px solid #ddd;">Villejuif</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Fleur d'Orchidée</td>
+            <td style="padding: 2px; border: 1px solid #ddd; text-align: center;"><img src="/images/lfcr-teams/Villejuif.png" alt="Villejuif" style="height: 120px; width: auto;"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a href="../tourneys.html">← Retour aux tournois</a>
+  </main>
+</body>
+</html>
