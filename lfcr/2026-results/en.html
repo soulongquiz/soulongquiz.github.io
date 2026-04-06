@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LFCR 2026 - Results</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+      <header style="margin-top:1em;">
+        <h1 class="blog-title">LFCR 2026 Results</h1>
+        <div class="blog-date">April 6, 2026</div>
+      </header>
+      <img src="/images/lfcr/final-bracket.png" alt="Final bracket" class="blog-thumb" style="width:100%;height:auto;object-fit:cover;border-radius:8px;">
+      <section class="blog-content" style="margin-top:1em;line-height:1.6;color:#222;">
+        <p>
+          After a very tight final, Cannes (Suu Cannes Tsu) won the 2026 French Riichi Clubs League!
+          This victory qualifies the Cannes club for the Riichi Mahjong Champions League for the second year in a row.
+        </p>
+        <p>
+          Congratulations also to our Sou-Long Mahjong players, who finished second and kept us dreaming until the last minute of the competition!
+        </p>
+        <p>
+          Watch the replays <a href="https://www.youtube.com/watch?v=XLZGWJ0R9gs&list=PLYYLRu5L9xetqfOULHEkSbJmTRiDxYc9y" style="text-decoration:none;color:#920606;">here on YouTube</a>
+          and view the league's detailed stats on <a href="https://www.tnt-sessions.com/statistics?league=lfcr-2026" style="text-decoration:none;color:#920606;">Benoit's excellent site</a>.
+         </p>
+         <p>
+          Here are the regular season results. The top 4 teams qualified directly for the semi-finals.
+        </p>
+        <img src="/images/lfcr/saison-rankings.png" alt="Regular season standings" class="blog-thumb" style="width:100%;height:auto;object-fit:cover;border-radius:8px;">
+
+        <p style="margin-top:2em;">
+          <a href="/index.html" style="text-decoration:none;color:#920606;">← Back to home</a>
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LFCR 2026 - Résultats</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+      <header style="margin-top:1em;">
+        <h1 class="blog-title">Résultats LFCR 2026</h1>
+        <div class="blog-date">6 avril 2026</div>
+      </header>
+      <img src="/images/lfcr/final-bracket.png" alt="Arbre Final" class="blog-thumb" style="width:100%;height:auto;object-fit:cover;border-radius:8px;">
+      <section class="blog-content" style="margin-top:1em;line-height:1.6;color:#222;">
+        <p>
+          Au terme d'une finale très serrée, Cannes (Suu Cannes Tsu) remporte la Ligue Française des Clubs de Riichi 2026 !
+          Cette victoire permet au club cannois de se qualifier, pour la deuxième année consécutive, à la Riichi Mahjong Champions League !
+        </p>
+        <p>
+          Bravo également à nos joueurs et joueuses de Sou-Long Mahjong, qui terminent deuxième et qui nous aurons fait réver jusqu'à la dernière minute de la compétition !
+        </p>
+        <p>
+          Retrouvez les replays <a href="https://www.youtube.com/watch?v=XLZGWJ0R9gs&list=PLYYLRu5L9xetqfOULHEkSbJmTRiDxYc9y" style="text-decoration:none;color:#920606;">ici sur YouTube</a>
+          et les statistiques détaillées de la ligue sur  <a href="https://www.tnt-sessions.com/statistics?league=lfcr-2026" style="text-decoration:none;color:#920606;">l'excellent site de Benoit</a>
+         </p>
+         <p>
+          Voici les résultats de la saison régulière. Les 4 premières équipes étaient directement qualifiées pour les demi-finales.
+        </p>
+        <img src="/images/lfcr/saison-rankings.png" alt="Standings saison régulière" class="blog-thumb" style="width:100%;height:auto;object-fit:cover;border-radius:8px;">
+
+        <p style="margin-top:2em;">
+          <a href="/index.html" style="text-decoration:none;color:#920606;">← Retour à l'accueil</a>
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
