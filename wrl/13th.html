@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Riichi League 13th Event - Sou-Long Mahjong</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="tourneys-page">
+  <div id="header-placeholder" class="header-flex"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
+  </script>
+
+  <main style="max-width:900px;margin:2em auto;padding:1em;">
+    <article class="blog-post">
+
+      <section style="display: flex; align-items: flex-start; gap: 1em; margin-top: 1em;">
+        <div style="flex: 1; padding-left: 1em;">
+          <h1 class="blog-title" style="text-align: left;">World Riichi League 13th Event: Toulouse</h1>
+          <div class="blog-date">17th-18th October 2026</div>
+          <p style="padding-right: 2em;">
+            The World Riichi League returns to Toulouse in October for its 13th European event!<br><br>
+            Sou-Long Mahjong is very pleased to host its second WRL tournament! <br><br>
+            You can find all details and registration information on the official <a href="https://worldriichileague.com/" style="text-decoration:none;color:#920606;">WRL website</a>
+
+          </p>
+
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1.5em; align-items: center; flex: 1;">
+          <img src="../images/WRCLOGO.webp" alt="WRL Logo" style="width: 100%; max-width: 300px; height: auto;">
+        </div>
+        
+      </section>
+  <section id="venue" class="mers-section">
+    <h2>Venue</h2>
+    <p>
+      82 bis Avenue Albert Bedouce<br>
+      31400 Toulouse, France
+    </p>
+    <iframe
+      src="https://www.google.com/maps?q=82+bis+Avenue+Albert+Bedouce,+31400+Toulouse,+France&hl=fr&z=18&output=embed"
+      width="100%"
+      height="600"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="82 bis Avenue Albert Bedouce, Toulouse"></iframe>
+    <p style="text-align:center;">
+      <a href="https://www.google.com/maps/search/?api=1&query=82+bis+Avenue+Albert+Bedouce,+31400+Toulouse,+France" target="_blank" rel="noopener">
+        View larger map
+      </a>
+    </p>
+  </section>
+      <a href="../tourneys.html">← Back to tournaments</a>
+    </article>
+  </main>
+</body>
+</html>
