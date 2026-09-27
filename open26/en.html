@@ -411,13 +411,13 @@
         <th>Organisation</th>
         <td>Sou-Long Mahjong</td>
         <th>Players</th>
-        <td>0/52</td>
+        <td>27/52</td>
       </tr>
       <tr class="bigscreen">
         <th>Rules</th>
         <td>EMA 2026</td>
         <th>MERS Weight</th>
-        <td>TBD</td>
+        <td>2+</td>
       </tr>
       <tr>
         <th>Location</th>
@@ -596,8 +596,8 @@
   </section>
 
   <section id="players" class="mers-section">
-    <h2>Registered Players</h2>
-    <div class="blog-date">Last updated: In progress</div>
+    <h2>Tournament Participants</h2>
+    <div class="blog-date">Last updated: 27 September 2026</div>
     <table class="mers-table" id="60-table">
       <thead>
         <tr>
@@ -609,6 +609,24 @@
         </tr>
       </thead>
       <tbody id="60-body"></tbody>
+    </table>
+  </section>
+
+  <section id="exam-referee" class="mers-section">
+    <h2>Seminar + Referee Exam</h2>
+    <div class="blog-date">Last updated: 27 September 2026</div>
+    <p>Assistant referee practical places available at the tournament: 2/12</p>
+    <table class="mers-table" id="exam-referee-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Country</th>
+          <th style="text-align: right">EMA ID</th>
+          <th style="text-align: center">Practical Officiating</th>
+        </tr>
+      </thead>
+      <tbody id="exam-referee-body"></tbody>
     </table>
   </section>
 
@@ -628,10 +646,11 @@
       <tbody id="wait-body"></tbody>
     </table>
   </section>
-  <script src="/player-list.js"></script>
+  <script src="player-list.js"></script>
   <script>
     renderTableRows("en");
     renderWaitRows();
+    renderExamRefereeRows("en");
   </script>
   <script>
     document.querySelector('.mers-navbar-toggle').addEventListener('click', function() {
