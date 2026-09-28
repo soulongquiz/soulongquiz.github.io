@@ -25,7 +25,14 @@ const players = [
   { name: 'Caroline Dupuis', country: 'France', emaNumber: '04580006', hasPaid: 'No' },
   { name: 'Julien Fouques', country: 'France', emaNumber: '04160081', hasPaid: 'No' },
   { name: 'Miaou Toto', country: 'France', emaNumber: '04040105', hasPaid: 'No' },
-  { name: 'Julien Delamarche', country: 'France', emaNumber: '04530005', hasPaid: 'No' }
+  { name: 'Julien Delamarche', country: 'France', emaNumber: '04530005', hasPaid: 'No' },
+  { name: 'Minh Tri Tran', country: 'France', emaNumber: '04320005', hasPaid: 'No' },
+  { name: 'Chantal Tran', country: 'France', emaNumber: '04320006', hasPaid: 'No' },
+  { name: 'Ho Ming Chan', country: 'United Kingdom', emaNumber: '11000090', hasPaid: 'No' },
+  { name: 'Vianney Heimburger', country: 'France', emaNumber: '04670004', hasPaid: 'No' },
+  { name: 'Loïc Allègre', country: 'France', emaNumber: '04580032', hasPaid: 'No' },
+  { name: 'François Zhao', country: 'France', emaNumber: '04160181', hasPaid: 'No' },
+  { name: 'Dimitri Gay', country: 'France', emaNumber: '', hasPaid: 'No' }
 ];
 
 const examRefereePlayers = [
@@ -41,11 +48,14 @@ const examRefereePlayers = [
     { name: 'Guillaume Aubut', country: 'France', emaNumber: '04530003', hasPaid: 'No' },
     { name: 'Kevin Chau', country: 'France', emaNumber: '04240014', hasPaid: 'No' },
     { name: 'Fabien Francois', country: 'France', emaNumber: '04990118', hasPaid: 'No' },
-    { name: 'Caroline Dupuis', country: 'France', emaNumber: '04580006', hasPaid: 'No' }
+    { name: 'Caroline Dupuis', country: 'France', emaNumber: '04580006', hasPaid: 'No' },
+    { name: 'Vianney Heimburger', country: 'France', emaNumber: '04670004', hasPaid: 'No' },
+    { name: 'Nathan Chavas', country: 'France', emaNumber: '04530038', hasPaid: 'Yes' }
+
 ];
 
 function getFlagUrl(country) {
-  return country === 'France' ? 'https://flagcdn.com/fr.svg' : country === 'Poland' ? 'https://flagcdn.com/pl.svg' : country === 'Spain' ? 'https://flagcdn.com/es.svg' : '';
+  return country === 'France' ? 'https://flagcdn.com/fr.svg' : country === 'Poland' ? 'https://flagcdn.com/pl.svg' : country === 'Spain' ? 'https://flagcdn.com/es.svg' : country === 'United Kingdom' ? 'https://flagcdn.com/gb.svg' : '';
 }
 
 function renderTableRows(lang = 'en') {
