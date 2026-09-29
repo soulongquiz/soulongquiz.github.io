@@ -23,7 +23,6 @@ const players = [
   { name: 'Michał Tkaczyk', country: 'Poland', emaNumber: '19000168', hasPaid: 'No' },
   { name: 'Łukasz Grzybowski', country: 'Poland', emaNumber: '19000073', hasPaid: 'No' },
   { name: 'Caroline Dupuis', country: 'France', emaNumber: '04580006', hasPaid: 'No' },
-  { name: 'Julien Fouques', country: 'France', emaNumber: '04160081', hasPaid: 'No' },
   { name: 'Miaou Toto', country: 'France', emaNumber: '04040105', hasPaid: 'No' },
   { name: 'Julien Delamarche', country: 'France', emaNumber: '04530005', hasPaid: 'No' },
   { name: 'Minh Tri Tran', country: 'France', emaNumber: '04320005', hasPaid: 'No' },
@@ -32,7 +31,10 @@ const players = [
   { name: 'Vianney Heimburger', country: 'France', emaNumber: '04670004', hasPaid: 'No' },
   { name: 'Loïc Allègre', country: 'France', emaNumber: '04580032', hasPaid: 'No' },
   { name: 'François Zhao', country: 'France', emaNumber: '04160181', hasPaid: 'No' },
-  { name: 'Dimitri Gay', country: 'France', emaNumber: '', hasPaid: 'No' }
+  { name: 'Dimitri Gay', country: 'France', emaNumber: '', hasPaid: 'No' },
+  { name: 'Erwan Sammut', country: 'France', emaNumber: '04530011', hasPaid: 'No' },
+  { name: 'Vasile Gherman', country: 'France', emaNumber: '04210022', hasPaid: 'No' },
+  { name: 'Sophie Delauche', country: 'Belgium', emaNumber: '002010084', hasPaid: 'No' }
 ];
 
 const examRefereePlayers = [
@@ -55,7 +57,12 @@ const examRefereePlayers = [
 ];
 
 function getFlagUrl(country) {
-  return country === 'France' ? 'https://flagcdn.com/fr.svg' : country === 'Poland' ? 'https://flagcdn.com/pl.svg' : country === 'Spain' ? 'https://flagcdn.com/es.svg' : country === 'United Kingdom' ? 'https://flagcdn.com/gb.svg' : '';
+  return country === 'France' ? 'https://flagcdn.com/fr.svg'
+    : country === 'Poland' ? 'https://flagcdn.com/pl.svg'
+    : country === 'Spain' ? 'https://flagcdn.com/es.svg'
+    : country === 'United Kingdom' ? 'https://flagcdn.com/gb.svg'
+    : country === 'Belgium' ? 'https://flagcdn.com/be.svg'
+    : '';
 }
 
 function renderTableRows(lang = 'en') {
