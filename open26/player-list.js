@@ -34,7 +34,11 @@ const players = [
   { name: 'Dimitri Gay', country: 'France', emaNumber: '', hasPaid: 'No' },
   { name: 'Erwan Sammut', country: 'France', emaNumber: '04530011', hasPaid: 'No' },
   { name: 'Vasile Gherman', country: 'France', emaNumber: '04210022', hasPaid: 'No' },
-  { name: 'Sophie Delauche', country: 'Belgium', emaNumber: '002010084', hasPaid: 'No' }
+  { name: 'Sophie Delauche', country: 'Belgium', emaNumber: '002010084', hasPaid: 'No' },
+  { name: 'Sacha Dunan', country: 'France', emaNumber: '04320030', hasPaid: 'No' },
+  { name: 'Pei Tang', country: 'Germany', emaNumber: '05000071', hasPaid: 'No' },
+  { name: 'Chao He', country: 'Spain', emaNumber: '10990149', hasPaid: 'No' },
+  { name: 'Florent Guth', country: 'France', emaNumber: '04530021', hasPaid: 'No' }
 ];
 
 const examRefereePlayers = [
@@ -52,7 +56,9 @@ const examRefereePlayers = [
     { name: 'Fabien Francois', country: 'France', emaNumber: '04990118', hasPaid: 'No' },
     { name: 'Caroline Dupuis', country: 'France', emaNumber: '04580006', hasPaid: 'No' },
     { name: 'Vianney Heimburger', country: 'France', emaNumber: '04670004', hasPaid: 'No' },
-    { name: 'Nathan Chavas', country: 'France', emaNumber: '04530038', hasPaid: 'Yes' }
+    { name: 'Nathan Chavas', country: 'France', emaNumber: '04530038', hasPaid: 'Yes' },
+    { name: 'François Zhao', country: 'France', emaNumber: '04160181', hasPaid: 'No' },
+    { name: 'Cameron Hochberg', country: 'France', emaNumber: '04040214', hasPaid: 'No' }
 
 ];
 
@@ -62,6 +68,7 @@ function getFlagUrl(country) {
     : country === 'Spain' ? 'https://flagcdn.com/es.svg'
     : country === 'United Kingdom' ? 'https://flagcdn.com/gb.svg'
     : country === 'Belgium' ? 'https://flagcdn.com/be.svg'
+    : country === 'Germany' ? 'https://flagcdn.com/de.svg'
     : '';
 }
 
