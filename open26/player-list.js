@@ -46,10 +46,12 @@ const players = [
   { name: 'Joey (Zhiyu) Zheng', country: 'Ireland', emaNumber: '26000016', hasPaid: 'No' },
   { name: 'Devi Steck', country: 'Switzerland', emaNumber: '16000029', hasPaid: 'No' },
   { name: 'Hugues Motte', country: 'France', emaNumber: '04530016', hasPaid: 'No' },
-  { name: 'Nina Popławska-Lima', country: 'Portugal', emaNumber: '12990014', hasPaid: 'No' },
+  { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'No' },
   { name: 'Sergio Matos Lima', country: 'Portugal', emaNumber: '12990014', hasPaid: 'No' },
   { name: 'Dominik Jarno', country: 'Poland', emaNumber: '19000035', hasPaid: 'No' },
-  { name: 'Adrianna Borowska', country: 'Poland', emaNumber: '19000255', hasPaid: 'No' }
+  { name: 'Adrianna Borowska', country: 'Poland', emaNumber: '19000255', hasPaid: 'No' },
+  { name: 'Zongbo Bao', country: 'Netherlands', emaNumber: '08011151', hasPaid: 'No' },
+
 ];
 
 const examRefereePlayers = [
@@ -85,6 +87,7 @@ function getFlagUrl(country) {
     : country === 'Portugal' ? 'https://flagcdn.com/pt.svg'
     : country === 'Ireland' ? 'https://flagcdn.com/ie.svg'
     : country === 'Switzerland' ? 'https://flagcdn.com/ch.svg'
+    : country === 'Netherlands' ? 'https://flagcdn.com/nl.svg'
     : '';
 }
 
