@@ -1,7 +1,7 @@
 const players = [
   { name: 'Louis Farina', country: 'France', emaNumber: '04530013', hasPaid: 'Yes' },
-  { name: 'Paul-Arthur Valet', country: 'France', emaNumber: '04990106', hasPaid: 'Yes' },
-  { name: 'Alexandre Dauriac', country: 'France', emaNumber: '04530002', hasPaid: 'No' },
+  { name: 'Paul-Arthur Valet', country: 'France', emaNumber: '04990106', hasPaid: 'No' },
+  { name: 'Alexandre Dauriac', country: 'France', emaNumber: '04530002', hasPaid: 'Yes' },
   { name: 'Julien Fouques', country: 'France', emaNumber: '04160081', hasPaid: 'No' },
   { name: 'Nicolas Baptiste', country: 'France', emaNumber: '04410014', hasPaid: 'No' },
   { name: 'Pierric Willemet', country: 'France', emaNumber: '04310040', hasPaid: 'No' },
@@ -51,6 +51,7 @@ const players = [
   { name: 'Dominik Jarno', country: 'Poland', emaNumber: '19000035', hasPaid: 'No' },
   { name: 'Adrianna Borowska', country: 'Poland', emaNumber: '19000255', hasPaid: 'No' },
   { name: 'Zongbo Bao', country: 'Netherlands', emaNumber: '08011151', hasPaid: 'No' },
+  { name: 'Caitlin Seltrecht', country: 'France', emaNumber: '04690004', hasPaid: 'No' }
 
 ];
 
@@ -73,7 +74,9 @@ const examRefereePlayers = [
     { name: 'François Zhao', country: 'France', emaNumber: '04160181', hasPaid: 'No' },
     { name: 'Cameron Hochberg', country: 'France', emaNumber: '04040214', hasPaid: 'No' },
     { name: 'Tomeow Liu', country: 'France', emaNumber: '04160183', hasPaid: 'Yes' },
-    { name: 'Devi Steck', country: 'Switzerland', emaNumber: '16000029', hasPaid: 'No' }
+    { name: 'Caitlin Seltrecht', country: 'France', emaNumber: '04690004', hasPaid: 'No' },
+    { name: 'Devi Steck', country: 'Switzerland', emaNumber: '16000029', hasPaid: 'No' },
+    { name: 'Qia Wang', country: 'Germany', emaNumber: '', hasPaid: 'No' },
 
 ];
 
@@ -92,8 +95,8 @@ function getFlagUrl(country) {
 }
 
 function renderTableRows(lang = 'en') {
-  const registered = players.slice(0, 64);
-  const waiting = players.slice(64);
+  const registered = players.slice(0, 52);
+  const waiting = players.slice(52);
 
   let rows = '';
   registered.forEach((player, index) => {
@@ -119,7 +122,7 @@ function renderWaitRows(lang) {
     lang = (document.documentElement.lang || '').toLowerCase().startsWith('fr') ? 'fr' : 'en';
   }
 
-  const waiting = players.slice(64);
+  const waiting = players.slice(52);
   renderWaitRowsFromArray(waiting, lang);
 }
 
