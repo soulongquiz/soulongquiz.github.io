@@ -31,9 +31,8 @@ const players = [
   { name: 'Vianney Heimburger', country: 'France', emaNumber: '04670004', hasPaid: 'No' },
   { name: 'Loïc Allègre', country: 'France', emaNumber: '04580032', hasPaid: 'No' },
   { name: 'François Zhao', country: 'France', emaNumber: '04160181', hasPaid: 'No' },
-  { name: 'Dimitri Gay', country: 'France', emaNumber: '', hasPaid: 'No' },
+  { name: 'Dimitri Gay', country: 'France', emaNumber: '', hasPaid: 'Yes' },
   { name: 'Erwan Sammut', country: 'France', emaNumber: '04530011', hasPaid: 'Yes' },
-  { name: 'Vasile Gherman', country: 'France', emaNumber: '04210022', hasPaid: 'No' },
   { name: 'Sophie Delauche', country: 'Belgium', emaNumber: '002010084', hasPaid: 'Yes' },
   { name: 'Sacha Dunan', country: 'France', emaNumber: '04320030', hasPaid: 'No' },
   { name: 'Pei Tang', country: 'Germany', emaNumber: '05000071', hasPaid: 'No' },
@@ -45,13 +44,14 @@ const players = [
   { name: 'Camilla (Yuwen) Pan', country: 'Ireland', emaNumber: '26000025', hasPaid: 'No' },
   { name: 'Joey (Zhiyu) Zheng', country: 'Ireland', emaNumber: '26000016', hasPaid: 'No' },
   { name: 'Devi Steck', country: 'Switzerland', emaNumber: '16000029', hasPaid: 'No' },
-  { name: 'Hugues Motte', country: 'France', emaNumber: '04530016', hasPaid: 'No' },
+  { name: 'Hugues Motte', country: 'France', emaNumber: '04530016', hasPaid: 'Yes' },
   { name: 'Nina Popławska-Lima', country: 'Poland', emaNumber: '19000071', hasPaid: 'No' },
   { name: 'Sergio Matos Lima', country: 'Portugal', emaNumber: '12990014', hasPaid: 'No' },
   { name: 'Dominik Jarno', country: 'Poland', emaNumber: '19000035', hasPaid: 'No' },
-  { name: 'Adrianna Borowska', country: 'Poland', emaNumber: '19000255', hasPaid: 'No' },
   { name: 'Zongbo Bao', country: 'Netherlands', emaNumber: '08011151', hasPaid: 'No' },
-  { name: 'Caitlin Seltrecht', country: 'France', emaNumber: '04690004', hasPaid: 'No' }
+  { name: 'Caitlin Seltrecht', country: 'France', emaNumber: '04690004', hasPaid: 'No' },
+  { name: 'Aleksander Orlikowski', country: 'Poland', emaNumber: '19000175', hasPaid: 'No' },
+  { name: 'Anne Royet', country: 'France', emaNumber: '04090098', hasPaid: 'No' }
 
 ];
 
@@ -76,7 +76,7 @@ const examRefereePlayers = [
     { name: 'Tomeow Liu', country: 'France', emaNumber: '04160183', hasPaid: 'Yes' },
     { name: 'Caitlin Seltrecht', country: 'France', emaNumber: '04690004', hasPaid: 'No' },
     { name: 'Devi Steck', country: 'Switzerland', emaNumber: '16000029', hasPaid: 'No' },
-    { name: 'Qia Wang', country: 'Germany', emaNumber: '', hasPaid: 'No' },
+    { name: 'Qiao Wang', country: 'Germany', emaNumber: '', hasPaid: 'No' },
 
 ];
 
