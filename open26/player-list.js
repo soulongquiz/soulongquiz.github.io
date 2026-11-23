@@ -50,7 +50,7 @@ const players = [
   { name: 'Aleksander Orlikowski', country: 'Poland', emaNumber: '19000175', hasPaid: 'No' },
   { name: 'Anne Royet', country: 'France', emaNumber: '04090098', hasPaid: 'Yes' },
   { name: 'Guillaume Vincent', country: 'France', emaNumber: '04530026', hasPaid: 'Yes' },
-  { name: 'Hoi Hong Chan', country: 'United Kingdom', emaNumber: '11000134', hasPaid: 'No' }
+  { name: 'Hoi Hong Chan', country: 'United Kingdom', emaNumber: '11000134', hasPaid: 'Yes' }
 
 ];
 
@@ -76,6 +76,7 @@ const examRefereePlayers = [
     { name: 'Caitlin Seltrecht', country: 'France', emaNumber: '04690004', hasPaid: 'No' },
     { name: 'Devi Steck', country: 'Switzerland', emaNumber: '16000029', hasPaid: 'No' },
     { name: 'Qiao Wang', country: 'Germany', emaNumber: '', hasPaid: 'No' },
+    { name: 'Zhexi Zhao', country: 'Spain', emaNumber: '10990156', hasPaid: 'No' }
 
 ];
 
