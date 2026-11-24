@@ -47,7 +47,6 @@ const players = [
   { name: 'Sergio Matos Lima', country: 'Portugal', emaNumber: '12990014', hasPaid: 'No' },
   { name: 'Dominik Jarno', country: 'Poland', emaNumber: '19000035', hasPaid: 'Yes' },
   { name: 'Caitlin Seltrecht', country: 'France', emaNumber: '04690004', hasPaid: 'Yes' },
-  { name: 'Aleksander Orlikowski', country: 'Poland', emaNumber: '19000175', hasPaid: 'No' },
   { name: 'Anne Royet', country: 'France', emaNumber: '04090098', hasPaid: 'Yes' },
   { name: 'Guillaume Vincent', country: 'France', emaNumber: '04530026', hasPaid: 'Yes' },
   { name: 'Hoi Hong Chan', country: 'United Kingdom', emaNumber: '11000134', hasPaid: 'Yes' }
